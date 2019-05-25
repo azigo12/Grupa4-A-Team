@@ -11801,11 +11801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\E-lections.csproj",
+      "projectUniqueName": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\E-lections.csproj",
       "projectName": "E-lections",
-      "projectPath": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\E-lections.csproj",
+      "projectPath": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\E-lections.csproj",
       "packagesPath": "C:\\Users\\Amila\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\obj\\",
+      "outputPath": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\E-lections\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

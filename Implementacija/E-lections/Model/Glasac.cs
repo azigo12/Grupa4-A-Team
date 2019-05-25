@@ -20,5 +20,10 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+
+        public void KandidujSe3()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

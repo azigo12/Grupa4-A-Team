@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\Model.csproj",
+      "projectPath": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\Amila\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amila\\source\\repos\\ooad-2018-2019\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\obj\\",
+      "outputPath": "C:\\Users\\Amila\\Desktop\\projekat\\Grupa4-A-Team\\Implementacija\\E-lections\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
