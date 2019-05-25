@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    class GlasackiListic
+    class GlasackiListic : IObserver
     {
         public int Id { get; set; }
         public int MaxOdabir { get; set; }
