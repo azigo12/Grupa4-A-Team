@@ -13,7 +13,7 @@ namespace Model
 
         public Izvjestaj GenerisiIzvjestaj(string tipIzvjestaja)
         {
-            throw NotImplementedException;
+            throw new NotImplementedException();
         }
     }
 }
