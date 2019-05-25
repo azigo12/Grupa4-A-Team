@@ -11,5 +11,7 @@ namespace Model
         public string Opis { get; set; }
         public string PutanjaSlike { get; set; }
 
+        public virtual Kandidat Kandidat { get; set; }
+
     }
 }

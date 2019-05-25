@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Model
 {
-    class Stranka
+    public class Stranka
     {
         public int Id { get; set; }
         public string Naziv { get; set; }
         private List<Osoba> Clanovi;
+
+        public virtual ICollection<Osoba> UpisiUStranku { get; set; }
 
         public void DodajClana(Osoba o)
         {

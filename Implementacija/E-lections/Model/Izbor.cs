@@ -9,7 +9,7 @@ namespace Model
         Aktivan,
         Neaktivan
     }
-    class Izbor : IObservable, IIzborPrototip
+    public class Izbor : IObservable, IIzborPrototip
     {
         public int Id { get; set; }
         public DateTime Pocetak { get; set; }
@@ -17,6 +17,8 @@ namespace Model
         public string Opis { get; set; }
         public string KantonOgranicenje { get; set; }
         public StatusIzbora Status { get; set; }
+
+        public virtual ICollection<GlasackiListic> GlasackiListici { get; set; }
 
         public void Notify()
         {

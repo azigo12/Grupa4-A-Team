@@ -8,6 +8,8 @@ namespace Model
     {
         private int brojGlasova;
 
+        public virtual Profil Profil { get; set; }        public virtual ICollection<GlasackiListic> GlasackiListici { get; set; }
+
         public void DodajGlas()
         {
             throw new NotImplementedException();

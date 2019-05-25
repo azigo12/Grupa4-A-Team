@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Model
 {
-    class IzvjestajFactory
+    public class IzvjestajFactory
     {
         public Izvjestaj KreirajIzvjestaj(TipIzvjestaja tip)
         {
-            throw NotImplementedException;
+            throw new NotImplementedException();
         }
     }
 }

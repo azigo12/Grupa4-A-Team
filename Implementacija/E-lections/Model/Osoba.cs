@@ -20,6 +20,9 @@ namespace Model
         public int Id { get; set; }
         public string Ulica { get; set; }
         public string Kanton { get; set; }
-    
+
+        public virtual Stranka Stranka { get; set; }
+
+
     }
 }

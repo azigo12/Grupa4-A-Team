@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    class Admin : IAdmin, IIzbor, IStranka
+    public class Admin : IAdmin, IIzbor, IStranka
     {
         public string JMBG { get; set; }
         public string Lozinka { get; set; }
