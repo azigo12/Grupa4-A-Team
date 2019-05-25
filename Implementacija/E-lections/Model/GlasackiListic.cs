@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Model
+{
+    class GlasackiListic
+    {
+        public int Id { get; set; }
+        public int MaxOdabir { get; set; }
+        public int BrojGlasova { get; set; }
+        public string Opis { get; set; }
+        private List<Kandidat> izbor;
+
+        public void RegistrujUcesnika(IUcesnik ucesnik)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
