@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    class Admin : IAdmin
+    class Admin : IAdmin, IIzbor, IStranka
     {
         public string JMBG { get; set; }
         public string Lozinka { get; set; }
@@ -27,6 +27,26 @@ namespace Model
         }
 
         public void IzbrisiPrivilegije(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IIzbor KreirajIzbor()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ObrisiIzbor(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Stranka KreirajStranku()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IzbrisiStranku()
         {
             throw new NotImplementedException();
         }
