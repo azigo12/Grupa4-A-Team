@@ -15,5 +15,10 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+
+        public Izvjestaj GenerisiIzvjestaj22(string tipIzvjestaja)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
