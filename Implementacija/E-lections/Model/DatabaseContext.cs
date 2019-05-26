@@ -8,13 +8,8 @@ namespace Model
         {
 
         }
- 
-
         public DbSet<Osoba> Kandidati { get; set; }
         public DbSet<Izbor> Izbor { get; set; }
         public DbSet<Admin> Admin { get; set; }
-
-
-
     }
 }
