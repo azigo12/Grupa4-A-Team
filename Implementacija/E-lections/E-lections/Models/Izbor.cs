@@ -22,7 +22,11 @@ namespace Model
 
         public void Notify()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            foreach(GlasackiListic gl in opcije)
+            {
+                gl.Update();
+            }
         }
 
         public void Clone()

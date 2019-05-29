@@ -10,7 +10,8 @@ namespace Model
         public string Naziv { get; set; }
         private List<Osoba> Clanovi;
 
-        public virtual ICollection<Osoba> UpisiUStranku { get; set; }
+        public virtual ICollection<Osoba> UpisiUStranku { get; set; }
+
 
         public void DodajClana(Osoba o)
         {

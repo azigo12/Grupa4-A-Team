@@ -12,11 +12,14 @@ namespace Model
         public string Opis { get; set; }
         private List<Kandidat> izbor;
 
-        public virtual Izbor Izbor { get; set; }        public virtual ICollection<Kandidat> Kandidati { get; set; }
+        public virtual Izbor Izbor { get; set; }
+        public virtual ICollection<Kandidat> Kandidati { get; set; }
+
 
         public void RegistrujUcesnika(IUcesnik ucesnik)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            izbor.Add(ucesnik);
         }
 
         public void Update()

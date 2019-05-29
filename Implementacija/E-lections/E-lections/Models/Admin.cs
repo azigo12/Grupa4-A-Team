@@ -6,6 +6,7 @@ namespace Model
 {
     public class Admin : IAdmin, IIzbor, IStranka
     {
+        public int Id { get; set; }
         public string JMBG { get; set; }
         public string Lozinka { get; set; }
         public int Id { get; set; }
