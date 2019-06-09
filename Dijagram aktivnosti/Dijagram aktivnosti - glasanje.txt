@@ -1,0 +1,11 @@
+Glasač se prijavljuje na sistem koristeći svoj jmbg i lozinku. Vrši se provjera ispravnosti unesenih podataka i u slučaju 
+neispravnih podataka prijava na sistem je onemogućena, uz obavijest da korisnički račun nije kreiran.U slučaju da je korisnik 
+ranije registrovan prijava je uspješna.
+U slučaju da ima kreiranih izbora, korisniku je omogućena prijava na iste. Prijava je moguća najkasnije 24h prije početka
+izbornog procesa, a u slučaju da je prijava izostala glasanje na izborima nije moguće. Ako je prijava uredno zaprimljena, 
+korisniku dolazi obavijest da je uspješno upisan u birački spisak. U vrijeme održavanja izbornog procesa, glasaču je 
+ponuđena lista svih glasačkih listića koji se odnose na dati izborni proces. Korisnik popunjava glasački listić, a 
+istovremeno se vrši validacija korsnikovog izbora. Nakon što korisnik potvrdi svoj izbor on dobija obavijest da je njegov 
+glas uredno procesuiran. Paralelno s tim se ažurira i statistika datog izbornog procesa. Naravno, ukoliko korisnik ne 
+glasa u vremenu predviđenom za dati izborni proces, glas se procesuira kao nevažeći. U oba slučaja proces glasanja je završen,
+te korisnik više nema pristup izbornom procesu. 
