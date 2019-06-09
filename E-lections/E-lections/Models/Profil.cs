@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace E_lections.Models
+{
+    public class Profil
+    {
+
+        public int ID { get; set; }
+        public string Opis { get; set; }
+        public string PutanjaSlike { get; set; }
+
+        public virtual Kandidat Kandidat { get; set; }
+
+    }
+}
