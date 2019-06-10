@@ -10,6 +10,13 @@ namespace E_lections.Controllers
 {
     public class HomeController : Controller
     {
+        private ELectionsDbContext context;
+
+        public HomeController(ELectionsDbContext context)
+        {
+            this.context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
