@@ -50,9 +50,11 @@ namespace E_lections.Controllers
             return View("Index");
         }
 
-        public async Task<IActionResult> ObrisiStranku(int? id)
+        public IActionResult ObrisiStranku(int? id)
         {
-            var stranka = await context.Stranka.FirstOrDefaultAsync(s => s.ID == id);
+            var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
+            if (stranka != null) context.Stranka.Remove(stranka);
+            context.SaveChanges();
             return View("Index");
         }
 
