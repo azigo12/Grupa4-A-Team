@@ -8,9 +8,12 @@ namespace E_lections.Controllers
 {
     public abstract class OsobaController : Controller
     {
-        public abstract IActionResult Index()
-        {
-            return View();
-        }
+        public abstract IActionResult Index();
+
+        public abstract IActionResult OdjaviSe();
+
+        public abstract IActionResult Glasaj();
+
+        public abstract IActionResult Stranka();
     }
 }
