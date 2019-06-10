@@ -31,6 +31,7 @@ namespace E_lections.Controllers
         {
             //ovdje id provjera iz baze
             //TODO!
+            return RedirectToAction("Index", "Admin");
             return View("Index");
         }
 

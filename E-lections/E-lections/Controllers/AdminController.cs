@@ -12,5 +12,10 @@ namespace E_lections.Controllers
         {
             return View();
         }
+
+        public IActionResult LogOut()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
