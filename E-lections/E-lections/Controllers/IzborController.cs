@@ -27,5 +27,11 @@ namespace E_lections.Controllers
         {
             return View(izbor.GlasackiListici);
         }
+
+        public IActionResult Info(int id)
+        {
+            var glasackiListic = context.GlasackiListic.FirstOrDefault(l => l.ID == id);
+            return View(glasackiListic.Kandidati);
+        }
     }
 }
