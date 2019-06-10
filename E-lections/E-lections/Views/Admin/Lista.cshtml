@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Lista</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div id="serach">
+@Html.TextBox("searching")
+    <input type = "submit" value="Search"/>
+</div>
+
 <table class="table">
     <thead>
         <tr>
