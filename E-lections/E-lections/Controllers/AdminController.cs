@@ -86,7 +86,8 @@ namespace E_lections.Controllers
 
         public IActionResult Kandidati()
         {
-            return View();
+            var kandidati = context.Kandidat.ToList();
+            return View(kandidati);
         }
     }
 }
