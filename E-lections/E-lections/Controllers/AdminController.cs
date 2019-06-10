@@ -83,5 +83,10 @@ namespace E_lections.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Izbor", new { id = izbor.ID });
         }
+
+        public IActionResult Kandidati()
+        {
+            return View();
+        }
     }
 }
