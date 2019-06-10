@@ -25,7 +25,7 @@
     width: 220px;
 }
 
-.searchBtn {
+#search {
     margin-left : 30px;
     border-bottom-left-radius : 5px;
     border-bottom-right-radius : 5px;
