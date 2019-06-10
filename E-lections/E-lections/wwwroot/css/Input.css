@@ -1,4 +1,16 @@
-﻿.input{
-    width : 220px;
-    border : 1px solid black;
+﻿.input-form{
+    width : 300px;
+}
+
+.right {
+    float : right;
+    padding : 100px, 100px, unset, unset;
+    margin-right : 50px;
+    margin-top : 50px;
+}
+
+.inputBtn {
+    background: 0#150202; 
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
 }
