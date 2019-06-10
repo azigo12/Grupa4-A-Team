@@ -67,5 +67,10 @@ namespace E_lections.Controllers
             var osobe = context.Osoba.ToList();
             return View(osobe);
         }
+
+        public IActionResult KreirajIzbore()
+        {
+            return RedirectToAction("Index", "Izbor");
+        }
     }
 }
