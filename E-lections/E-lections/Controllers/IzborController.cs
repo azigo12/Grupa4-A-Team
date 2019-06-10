@@ -33,5 +33,10 @@ namespace E_lections.Controllers
             var glasackiListic = context.GlasackiListic.FirstOrDefault(l => l.ID == id);
             return View(glasackiListic.Kandidati);
         }
+
+        public IActionResult Kreiraj()
+        {
+            return View();
+        }
     }
 }
