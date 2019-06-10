@@ -62,9 +62,9 @@ namespace E_lections.Controllers
             return View();
         }
 
-        public IActionResult Lista()
+        public IActionResult Lista(string searching)
         {
-            var osobe = context.Osoba.ToList();
+            var osobe = context.Osoba.Where(o => searching == null || o.Prezime.Contains(searching));
             return View(osobe);
         }
 
