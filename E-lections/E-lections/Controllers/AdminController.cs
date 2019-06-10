@@ -40,7 +40,7 @@ namespace E_lections.Controllers
 
         public IActionResult Stranka()
         {
-            return View();
+            return View(context.Stranka.ToList());
         }
     }
 }
