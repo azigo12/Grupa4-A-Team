@@ -17,9 +17,15 @@ namespace E_lections.Controllers
             this.context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            return View();
+            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
+            return View("Detalji", izbor);
+        }
+
+        public IActionResult Detalji(Izbor izbor)
+        {
+            return View(izbor);
         }
     }
 }
