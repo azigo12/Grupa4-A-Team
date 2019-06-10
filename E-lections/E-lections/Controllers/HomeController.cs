@@ -26,6 +26,14 @@ namespace E_lections.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(String username, String password)
+        {
+            //ovdje id provjera iz baze
+            //TODO
+            return View("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
