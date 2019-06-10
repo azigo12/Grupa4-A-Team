@@ -36,9 +36,8 @@
                 <span asp-validation-for="JMBG" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <select asp-for="Spol" class="form-control"></select>
                 Muški
-                @Html.RadioButtonFor(m => m.Spol, Spol.Muski);
+                @Html.RadioButtonFor(m => m.Spol, Spol.Muski)
                 Ženski
                 @Html.RadioButtonFor(m => m.Spol, Spol.Zenski)
             </div>
