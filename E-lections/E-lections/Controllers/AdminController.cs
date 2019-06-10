@@ -17,5 +17,10 @@ namespace E_lections.Controllers
         {
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult DodajStranku()
+        {
+            return View();
+        }
     }
 }
