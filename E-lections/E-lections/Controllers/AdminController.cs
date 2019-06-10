@@ -63,7 +63,7 @@ namespace E_lections.Controllers
         public IActionResult DetaljiStranke(int? id)
         {
             var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
-            return View(stranka.UpisiUStranku);
+            return View(stranka);
         }
 
         public IActionResult Lista(string searching)
