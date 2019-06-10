@@ -57,7 +57,7 @@ namespace E_lections.Controllers
             var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
             if (stranka != null) context.Stranka.Remove(stranka);
             context.SaveChanges();
-            return View("Stranka");
+            return View("Index");
         }
 
         public IActionResult DetaljiStranke(int? id)
