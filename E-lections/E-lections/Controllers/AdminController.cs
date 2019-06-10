@@ -36,7 +36,9 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult DodajStranku(Stranka s)
         {
-            return Content(s.Naziv);
+            context.Stranka.Add(s);
+            context.SaveChanges();
+            return View("Index");
         }
 
         public IActionResult Stranka()
