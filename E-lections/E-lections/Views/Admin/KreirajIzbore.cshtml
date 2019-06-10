@@ -22,12 +22,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="KantonOgranicenje" class="control-label"></label>
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK")
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK")
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK")
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "BPK")
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SBK")
                 <span asp-validation-for="KantonOgranicenje" class="text-danger"></span>
+                <br />
+                SK
+                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK")
+                TK
+                @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK")
+                ZDK
+                @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK")
+                BPK
+                @Html.RadioButtonFor(model => model.KantonOgranicenje, "BPK")
+                SBK
+                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SBK")
+
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
@@ -38,7 +45,7 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Kreiraj" class="btn btn-primary" />
             </div>
         </form>
     </div>
