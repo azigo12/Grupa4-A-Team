@@ -1,0 +1,73 @@
+﻿@model IEnumerable<E_lections.Models.Osoba>
+
+@{
+    ViewData["Title"] = "Lista";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumRodjenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojLicneKarte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JMBG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ulica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kanton)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumRodjenja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojLicneKarte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JMBG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ulica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kanton)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
