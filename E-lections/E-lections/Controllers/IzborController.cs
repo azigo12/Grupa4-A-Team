@@ -25,7 +25,7 @@ namespace E_lections.Controllers
 
         public IActionResult Detalji(Izbor izbor)
         {
-            return View(izbor);
+            return View(izbor.GlasackiListici);
         }
     }
 }
