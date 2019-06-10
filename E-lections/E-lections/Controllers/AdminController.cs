@@ -46,9 +46,17 @@ namespace E_lections.Controllers
             return View(context.Stranka.ToList());
         }
 
-        public IActionResult AzurirajStranku(int? id)
+        public IActionResult AzurirajStranku()
         {
             return View("Azuriraj");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AzurirajStrankuAsync(int? id)
+        {
+            var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
+            if(await TryUpdateModelAsync<Stranka>(stranka, "", s => s.Naziv)) context.SaveChanges();
+            return View("Index");
         }
 
         public IActionResult ObrisiStranku(int? id)
