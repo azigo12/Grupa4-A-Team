@@ -73,7 +73,15 @@ namespace E_lections.Controllers
 
         public IActionResult KreirajIzbore()
         {
-            return RedirectToAction("Index", "Izbor");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult KreirajIzbore(Izbor izbor)
+        {
+            context.Izbor.Add(izbor);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Izbor", new { id = izbor.ID });
         }
     }
 }
