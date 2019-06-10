@@ -55,5 +55,11 @@ namespace E_lections.Controllers
             var stranka = await context.Stranka.FirstOrDefaultAsync(s => s.ID == id);
             return View("Index");
         }
+
+        public IActionResult DetaljiStranke(int? id)
+        {
+            var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
+            return View(stranka);
+        }
     }
 }
