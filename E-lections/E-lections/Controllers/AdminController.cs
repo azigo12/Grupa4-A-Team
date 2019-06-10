@@ -64,7 +64,8 @@ namespace E_lections.Controllers
 
         public IActionResult Lista(string searching)
         {
-            var osobe = context.Osoba.Where(o => searching == null || o.Prezime.Contains(searching));
+            //var osobe = context.Osoba.Where(o => searching == null || o.Prezime.Contains(searching));
+            var osobe = new List<Osoba>();
             return View(osobe);
         }
 

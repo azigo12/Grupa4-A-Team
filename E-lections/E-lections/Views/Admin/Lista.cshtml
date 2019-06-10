@@ -8,9 +8,9 @@
 
 @using (Html.BeginForm("Lista", "Admin", FormMethod.Get))
 {
-    <div id="search">
+    <div class="box">
         @Html.TextBox("searching")
-        <input type = "submit" value="Traži" name="search"/>
+        <input type = "submit" value="Traži" ID="search"/>
     </div>
 }
 
