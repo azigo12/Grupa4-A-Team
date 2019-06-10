@@ -1,14 +1,9 @@
 ﻿@model IEnumerable<E_lections.Models.Stranka>
 
 @{
-    ViewData["Title"] = "Stranka";
+    Layout = "_LayoutAdmin";
 }
 
-<h1>Stranka</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -19,17 +14,18 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
-            </td>
-            <td>
-                <a asp-action="AzurirajStranku" asp-route-id="@item.ID">Ažuriraj</a> |
-                <a asp-action="DetaljiStranke" asp-route-id="@item.ID">Detalji</a> |
-                <a asp-action="ObrisiStranku" asp-route-id="@item.ID">Obriši</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    <a asp-action="AzurirajStranku" asp-route-id="@item.ID">Ažuriraj</a> |
+                    <a asp-action="DetaljiStranke" asp-route-id="@item.ID">Detalji</a> |
+                    <a asp-action="ObrisiStranku" asp-route-id="@item.ID">Obriši</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
