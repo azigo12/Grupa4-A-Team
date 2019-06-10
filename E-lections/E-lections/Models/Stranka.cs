@@ -12,7 +12,7 @@ namespace E_lections.Models
         private List<Osoba> clanovi;
 
         //veze
-        public virtual ICollection<Osoba> UpisiUStranku { get; set; }
+        public virtual ICollection<Osoba> UpisiUStranku { get; set; } 
 
 
         public void DodajClana(Osoba o)
