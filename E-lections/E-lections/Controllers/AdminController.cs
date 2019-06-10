@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using E_lections.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_lections.Controllers
@@ -21,6 +22,12 @@ namespace E_lections.Controllers
         public IActionResult DodajStranku()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult DodajStranku(Stranka s)
+        {
+            return Content(s.Naziv);
         }
     }
 }
