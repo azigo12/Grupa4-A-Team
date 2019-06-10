@@ -61,5 +61,11 @@ namespace E_lections.Controllers
             var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
             return View();
         }
+
+        public IActionResult Lista()
+        {
+            var osobe = context.Osoba.ToList();
+            return View(osobe);
+        }
     }
 }
