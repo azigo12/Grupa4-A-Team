@@ -38,5 +38,13 @@ namespace E_lections.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Kreiraj(GlasackiListic gl)
+        {
+            context.GlasackiListic.Add(gl);
+            context.SaveChanges();
+            return View("Index");
+        }
     }
 }
