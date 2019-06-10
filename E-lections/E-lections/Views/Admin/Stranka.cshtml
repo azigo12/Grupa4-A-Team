@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.Naziv)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="AzurirajStranku" asp-route-id="@item.ID">Ažuriraj</a> |
+                <a asp-action="DetaljiStranke" asp-route-id="@item.ID">Detalji</a> |
+                <a asp-action="ObrisiStranku" asp-route-id="@item.ID">Obriši</a>
             </td>
         </tr>
 }

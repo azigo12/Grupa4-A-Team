@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using E_lections.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_lections.Controllers
 {
@@ -41,6 +42,12 @@ namespace E_lections.Controllers
         public IActionResult Stranka()
         {
             return View(context.Stranka.ToList());
+        }
+
+        public async Task<IActionResult> AzurirajStrankuAsync(int? id)
+        {
+            var stranka = await context.Stranka.FirstOrDefaultAsync(s => s.ID == id);
+            return View("Index");
         }
     }
 }
