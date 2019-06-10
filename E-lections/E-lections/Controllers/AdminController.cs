@@ -37,5 +37,10 @@ namespace E_lections.Controllers
         {
             return Content(s.Naziv);
         }
+
+        public IActionResult Stranka()
+        {
+            return View();
+        }
     }
 }
