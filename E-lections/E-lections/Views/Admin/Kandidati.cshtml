@@ -1,0 +1,77 @@
+﻿@model IEnumerable<E_lections.Models.Kandidat>
+
+@{
+    ViewData["Title"] = "Kandidati";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Kandidati</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumRodjenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JMBG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kanton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stranka)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumRodjenja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JMBG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kanton)
+            </td>
+            <td>
+                @if (item.Stranka != null)
+                {
+                    @Html.DisplayFor(modelItem => item.Stranka.Naziv);
+                }
+                else
+                {
+                    @Html.Display("Nezavisni kandidat");
+                }
+            </td>
+            <td>
+                <a asp-action="Profil" asp-controller="Kandidat" asp-route-id="@item.ID">Pogledaj profil</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
