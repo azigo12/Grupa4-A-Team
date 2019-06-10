@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using E_lections.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_lections.Controllers
 {
     public class AdminController : Controller
     {
+
+        private ELectionsDbContext context;
+
+        public AdminController(ELectionsDbContext context)
+        {
+            this.context = context;
+        }
 
         public IActionResult Index()
         {
