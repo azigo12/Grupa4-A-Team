@@ -5,6 +5,14 @@
     background-color: #f4f4f4;
 }
 
+.with-image {
+    min-height: 500px;
+    background: url('/img/simple-gray-background-8449-8772-hd-wallpapers.jpg') repeat-y 0 -400px;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
 /* Global */
 .container {
     width: 80%;
@@ -63,8 +71,8 @@ header {
 
 /* Showcase */
 #showcase {
-    min-height: 400px;
-    background: url('../img/showcase.jpg') no-repeat 0 -400px;
+    min-height: 500px;
+    background: url('/img/simple-gray-background-8449-8772-hd-wallpapers.jpg') no-repeat 0 -400px;
     text-align: center;
     color: #293e6a;
 }
@@ -79,12 +87,26 @@ header {
         font-size: 20px;
     }
 
+    .everything{
+        min-height:100%;
+    }
+
 footer {
     padding: 20px;
-    margin-top: 20px;
     color: #ffffff;
     background-color: #293e6a;
     text-align: center;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.footer1 {
+    padding: 20px;
+    color: #ffffff;
+    background-color: #293e6a;
+    text-align: center;
+    height: 50px;
+    margin-top: 200px;
 }
 
 /*text boxes*/
@@ -108,7 +130,8 @@ footer {
     padding: 40px;
     width: 250px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 50px;
+    margin-bottom:20px;
     height: auto;
     align-content: center
 }
@@ -192,4 +215,30 @@ form{
 label {
     font-size: small;
     color: white;
+}
+
+.input-text-box {
+    border: thin;
+    padding: 5px;
+    border: #293e6a;
+}
+
+.box{
+    margin-left: 100px;
+}
+
+.list {
+    color: white;
+    font-size: medium;
+    text-align:center;
+}
+
+.list li{
+    list-style-type:none
+}
+
+
+.link{
+    color:white;
+    font-size: medium;
 }

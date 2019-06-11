@@ -6,55 +6,57 @@
 }
 
 
-@using (Html.BeginForm("Lista", "Admin", FormMethod.Get))
+<!--@using (Html.BeginForm("Lista", "Admin", FormMethod.Get))
 {
     <div class="box">
-        @Html.TextBox("searching")
-        <input type = "submit" value="Traži" ID="search"/>
+        @Html.TextBox("searching", null, new { @class = "input-text-box"})
+        <input type = "submit" value="Traži" ID="search", class="btn"/>
     </div>
-}
+}-->
+    <body>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prezime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DatumRodjenja)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BrojLicneKarte)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.JMBG)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Spol)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ulica)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Kanton)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prezime)
+                        </td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatumRodjenja)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BrojLicneKarte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JMBG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Spol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ulica)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kanton)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezime)
-            </td>
-      
-        </tr>
-}
-    </tbody>
-</table>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>

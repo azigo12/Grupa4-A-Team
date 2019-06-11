@@ -11,6 +11,10 @@
     <Compile Remove="Migrations\20190609151943_Baza.Designer.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\simple-gray-background-8449-8772-hd-wallpapers.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
