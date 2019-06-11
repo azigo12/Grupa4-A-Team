@@ -6,7 +6,7 @@
 }
 
 
-<div class="row">
+<div class="signin">
     <div class="col-md-4">
         <form asp-action="KreirajIzbore">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -16,25 +16,25 @@
                 <span asp-validation-for="Pocetak" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
                 @Html.TextAreaFor(model => model.Opis, new { @class = "form-control" })
-                <span asp-validation-for="Opis" class="text-danger"></span>
+                <span asp-validation-for="Opis" class="text-danger" placeholder ="Opis"></span>
             </div>
             <div class="form-group">
-                <label asp-for="KantonOgranicenje" class="control-label"></label>
                 <span asp-validation-for="KantonOgranicenje" class="text-danger"></span>
                 <br />
-                SK
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK")
-                TK
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK")
-                ZDK
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK")
-                BPK
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "BPK")
-                SBK
-                @Html.RadioButtonFor(model => model.KantonOgranicenje, "SBK")
+                <label>
 
+                    @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK", new { @class = "radio-button" })
+                    SK
+                </label>
+                <label>
+                    @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK", new { @class = "radio-button" })
+                    TK
+                </label>
+                <label>
+                    @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK", new { @class = "radio-button" })
+                    ZDK
+                </label>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
@@ -45,7 +45,7 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Kreiraj" class="btn btn-primary" />
+                <input type="submit" value="Kreiraj" class="btn" />
             </div>
         </form>
     </div>

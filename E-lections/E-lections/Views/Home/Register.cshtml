@@ -36,13 +36,7 @@
                 <span asp-validation-for="JMBG" class="text-danger"></span>
             </div>
             <div class="form-group">
-                Muški
-                @Html.RadioButtonFor(m => m.Spol, Spol.Muski)
-                Ženski
-                @Html.RadioButtonFor(m => m.Spol, Spol.Zenski)
-            </div>
-            <div class="form-group">
-                <input asp-for="Lozinka" type="password" class="form-control" placeholder="Lozinka" />
+                <input asp-for="Lozinka" class="form-control" placeholder="Lozinka" />
                 <span asp-validation-for="Lozinka" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -52,6 +46,22 @@
             <div class="form-group">
                 <input asp-for="Kanton" class="form-control" placeholder="Kanton" />
                 <span asp-validation-for="Kanton" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="StrankaId" class="form-control" asp-items="ViewBag.StrankaId"></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="BirackoMjestoID" class="form-control" asp-items="ViewBag.BirackoMjestoID"></select>
+            </div>
+            <div class="form-group">
+                <label>
+                    @Html.RadioButtonFor(m => m.Spol, Spol.Muski, new { @class = "radio-button" })
+                    Muški
+                </label>
+                <label>
+                    @Html.RadioButtonFor(m => m.Spol, Spol.Zenski, new { @class = "radio-button" })
+                    Ženski
+                </label>
             </div>
             <div class="form-group">
                 <input type="submit" value="Registruj se" class="btn" />
