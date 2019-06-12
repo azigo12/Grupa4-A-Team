@@ -24,9 +24,9 @@ namespace E_lections.Controllers
             return View();
         }
 
-        public IActionResult Detalji(Izbor izbor)
+        public IActionResult Detalji()
         {
-            return View(izbor.GlasackiListici);
+            return View(trenutni.GlasackiListici);
         }
 
         public IActionResult Info(int id)
@@ -43,6 +43,7 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Kreiraj(GlasackiListic gl)
         {
+            gl.IzborId = trenutni.ID;
             context.GlasackiListic.Add(gl);
             context.SaveChanges();
             return View("Index");
