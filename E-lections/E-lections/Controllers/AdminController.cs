@@ -97,9 +97,11 @@ namespace E_lections.Controllers
             if (izbor != null)
             {
                 context.Izbor.Remove(izbor);
-                context.SaveChangesAsync();
+                context.SaveChanges();
             }
             var izbori = context.Izbor.ToList();
             return View("Izbori", izbori);
+        }
+
     }
 }
