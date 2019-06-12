@@ -31,7 +31,7 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Register(Osoba o)
         {
-
+            return View();
         }
 
         public IActionResult Login()
