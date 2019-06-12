@@ -11,8 +11,6 @@ namespace E_lections.Models
         public string Lozinka { get; set; }
         public IzvjestajFactory IzvjestajFactory;
 
-        public virtual ICollection<Izbor> Izbori { get; set; }
-
         public Izvjestaj GenerisiIzvjestaj(string tipIzvjestaja)
         {
             throw new NotImplementedException();

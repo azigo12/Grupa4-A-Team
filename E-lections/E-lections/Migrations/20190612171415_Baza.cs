@@ -36,6 +36,22 @@ namespace E_lections.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Izbor",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Pocetak = table.Column<DateTime>(nullable: false),
+                    Opis = table.Column<string>(nullable: true),
+                    KantonOgranicenje = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Izbor", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Profil",
                 columns: table => new
                 {
@@ -60,29 +76,6 @@ namespace E_lections.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Stranka", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Izbor",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Pocetak = table.Column<DateTime>(nullable: false),
-                    Opis = table.Column<string>(nullable: true),
-                    KantonOgranicenje = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
-                    AdminId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Izbor", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Izbor_Admin_AdminId",
-                        column: x => x.AdminId,
-                        principalTable: "Admin",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,17 +106,17 @@ namespace E_lections.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Ime = table.Column<string>(nullable: true),
-                    Prezime = table.Column<string>(nullable: true),
+                    Ime = table.Column<string>(nullable: false),
+                    Prezime = table.Column<string>(nullable: false),
                     DatumRodjenja = table.Column<DateTime>(nullable: false),
-                    BrojLicneKarte = table.Column<string>(nullable: true),
-                    JMBG = table.Column<string>(nullable: true),
+                    BrojLicneKarte = table.Column<string>(maxLength: 9, nullable: false),
+                    JMBG = table.Column<string>(maxLength: 13, nullable: false),
                     Spol = table.Column<int>(nullable: false),
                     Lozinka = table.Column<string>(nullable: true),
                     Ulica = table.Column<string>(nullable: true),
                     Kanton = table.Column<string>(nullable: true),
                     StrankaId = table.Column<int>(nullable: false),
-                    BirackoMjestoID = table.Column<int>(nullable: false),
+                    BirackoMjestoID = table.Column<int>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
                     ProfilId = table.Column<int>(nullable: true),
                     GlasackiListicId = table.Column<int>(nullable: true)
@@ -148,7 +141,7 @@ namespace E_lections.Migrations
                         column: x => x.BirackoMjestoID,
                         principalTable: "BirackoMjesto",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Osoba_Stranka_StrankaId",
                         column: x => x.StrankaId,
@@ -200,11 +193,6 @@ namespace E_lections.Migrations
                 column: "IzborId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Izbor_AdminId",
-                table: "Izbor",
-                column: "AdminId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Osoba_GlasackiListicId",
                 table: "Osoba",
                 column: "GlasackiListicId");
@@ -230,6 +218,9 @@ namespace E_lections.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Admin");
+
+            migrationBuilder.DropTable(
                 name: "BirackoMjestoKandidat");
 
             migrationBuilder.DropTable(
@@ -249,9 +240,6 @@ namespace E_lections.Migrations
 
             migrationBuilder.DropTable(
                 name: "Izbor");
-
-            migrationBuilder.DropTable(
-                name: "Admin");
         }
     }
 }
