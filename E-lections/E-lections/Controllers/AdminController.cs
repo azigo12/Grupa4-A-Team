@@ -105,8 +105,7 @@ namespace E_lections.Controllers
 
         public IActionResult DetaljiIzbora(int? id)
         {
-            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
-            return View("../Izbor/Index", izbor);
+            return View("../Izbor/Index", new { idIzbora = id });
         }
 
     }
