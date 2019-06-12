@@ -76,7 +76,13 @@ namespace E_lections.Controllers
         {
             context.Izbor.Add(izbor);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Index");
+        }
+
+        public IActionResult Izbori()
+        {
+            var izbori = context.Izbor.ToList();
+            return View(izbori);
         }
 
         public IActionResult Kandidati()
