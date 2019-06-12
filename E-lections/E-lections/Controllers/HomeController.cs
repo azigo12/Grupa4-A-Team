@@ -28,6 +28,12 @@ namespace E_lections.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Register(Osoba o)
+        {
+
+        }
+
         public IActionResult Login()
         {
             return RedirectToAction("Index", "Admin");
