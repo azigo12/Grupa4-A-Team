@@ -31,6 +31,11 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Register(Osoba o)
         {
+            if(ModelState.IsValid)
+            {
+                context.Osoba.Add(o);
+                context.SaveChangesAsync();
+            }
             return View();
         }
 
