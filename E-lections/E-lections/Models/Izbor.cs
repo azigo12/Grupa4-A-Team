@@ -30,7 +30,7 @@ namespace E_lections.Models
         public void Notify()
         {
             //throw new NotImplementedException();
-            foreach (GlasackiListic gl in opcije)
+            foreach (GlasackiListic gl in GlasackiListici)
             {
                 gl.Update();
             }
