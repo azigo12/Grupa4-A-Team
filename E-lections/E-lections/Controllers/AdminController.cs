@@ -76,7 +76,7 @@ namespace E_lections.Controllers
         {
             context.Izbor.Add(izbor);
             context.SaveChanges();
-            return RedirectToAction("Index", "Izbor", new { id = izbor.ID });
+            return RedirectToAction("Index");
         }
 
         public IActionResult Kandidati()

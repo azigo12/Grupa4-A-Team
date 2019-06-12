@@ -29,7 +29,7 @@ namespace E_lections.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(Osoba o)
+        public IActionResult Register(Glasac o)
         {
             if(ModelState.IsValid)
             {
