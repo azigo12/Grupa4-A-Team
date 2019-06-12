@@ -90,5 +90,16 @@ namespace E_lections.Controllers
             var kandidati = context.Kandidat.ToList();
             return View(kandidati);
         }
+
+        public IActionResult BrisanjeIzbora(int? id)
+        {
+            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
+            if (izbor != null)
+            {
+                context.Izbor.Remove(izbor);
+                context.SaveChangesAsync();
+            }
+            var izbori = context.Izbor.ToList();
+            return View("Izbori", izbori);
     }
 }
