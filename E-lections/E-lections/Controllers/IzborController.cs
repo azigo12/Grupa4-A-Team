@@ -18,9 +18,10 @@ namespace E_lections.Controllers
             this.context = context;
         }
 
-        public IActionResult Index(Izbor izbor)
+        public IActionResult Index(int idIzbora)
         {
-            trenutni = izbor;
+            trenutni = context.Izbor.FirstOrDefault(i => i.ID == idIzbora);
+            ViewBag.id = trenutni;
             return View();
         }
 

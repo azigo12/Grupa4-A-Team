@@ -105,7 +105,7 @@ namespace E_lections.Controllers
 
         public IActionResult DetaljiIzbora(int? id)
         {
-            return View("../Izbor/Index", new { idIzbora = id });
+            return RedirectToAction("Index","Izbor", new { idIzbora = id });
         }
 
     }
