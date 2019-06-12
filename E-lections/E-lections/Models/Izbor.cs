@@ -21,10 +21,6 @@ namespace E_lections.Models
         public StatusIzbora Status { get; set; }
 
         //veze sa drugim tabelama
-        public virtual Admin Admin { get; set; }
-        public int AdminId { get; set; }
-
-
         public virtual ICollection<GlasackiListic> GlasackiListici { get; set; }
 
         public void Notify()

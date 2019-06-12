@@ -95,8 +95,6 @@ namespace E_lections.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AdminId");
-
                     b.Property<string>("KantonOgranicenje");
 
                     b.Property<string>("Opis");
@@ -107,8 +105,6 @@ namespace E_lections.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AdminId");
-
                     b.ToTable("Izbor");
                 });
 
@@ -118,24 +114,30 @@ namespace E_lections.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BirackoMjestoID");
+                    b.Property<int?>("BirackoMjestoID");
 
-                    b.Property<string>("BrojLicneKarte");
+                    b.Property<string>("BrojLicneKarte")
+                        .IsRequired()
+                        .HasMaxLength(9);
 
                     b.Property<DateTime>("DatumRodjenja");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
 
-                    b.Property<string>("Ime");
+                    b.Property<string>("Ime")
+                        .IsRequired();
 
-                    b.Property<string>("JMBG");
+                    b.Property<string>("JMBG")
+                        .IsRequired()
+                        .HasMaxLength(13);
 
                     b.Property<string>("Kanton");
 
                     b.Property<string>("Lozinka");
 
-                    b.Property<string>("Prezime");
+                    b.Property<string>("Prezime")
+                        .IsRequired();
 
                     b.Property<int>("Spol");
 
@@ -230,20 +232,11 @@ namespace E_lections.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("E_lections.Models.Izbor", b =>
-                {
-                    b.HasOne("E_lections.Models.Admin", "Admin")
-                        .WithMany("Izbori")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("E_lections.Models.Osoba", b =>
                 {
                     b.HasOne("E_lections.Models.BirackoMjesto", "BirackoMjesto")
                         .WithMany()
-                        .HasForeignKey("BirackoMjestoID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BirackoMjestoID");
 
                     b.HasOne("E_lections.Models.Stranka", "Stranka")
                         .WithMany("UpisiUStranku")

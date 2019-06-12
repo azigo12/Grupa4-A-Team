@@ -9,6 +9,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190609151943_Baza.cs" />
     <Compile Remove="Migrations\20190609151943_Baza.Designer.cs" />
+    <Compile Remove="Migrations\20190609152138_Baza.cs" />
+    <Compile Remove="Migrations\20190609152138_Baza.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
