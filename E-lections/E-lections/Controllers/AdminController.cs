@@ -103,5 +103,11 @@ namespace E_lections.Controllers
             return View("Izbori", izbori);
         }
 
+        public IActionResult DetaljiIzbora(int? id)
+        {
+            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
+            return View("../Izbor/Index", izbor);
+        }
+
     }
 }

@@ -17,10 +17,9 @@ namespace E_lections.Controllers
             this.context = context;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index()
         {
-            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
-            return View("Detalji", izbor);
+            return View();
         }
 
         public IActionResult Detalji(Izbor izbor)
