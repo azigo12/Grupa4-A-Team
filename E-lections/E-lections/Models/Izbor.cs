@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,10 +15,13 @@ namespace E_lections.Models
     public class Izbor : IObservable, IIzborPrototip 
     {
         public int ID { get; set; }
+        [Required, Display(Name = "Početak izbora")]
         public DateTime Pocetak { get; set; }
-        private List<GlasackiListic> opcije;
+        [Required, Display(Name = "Opis"), MaxLength(200)]
         public string Opis { get; set; }
+        [Required, Display(Name = "Kanton")]
         public string KantonOgranicenje { get; set; }
+        [Display(Name = "Status"), Required]
         public StatusIzbora Status { get; set; }
 
         //veze sa drugim tabelama
