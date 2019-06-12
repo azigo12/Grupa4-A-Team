@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using E_lections.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace E_lections.Controllers
 {
@@ -25,7 +26,7 @@ namespace E_lections.Controllers
             return View();
         }
 
-        public IActionResult Detalji(ICollection<GlasackiListic> gl)
+        public IActionResult Detalji()
         {
             var trenutni = context.Izbor.FirstOrDefault(i => i.ID == idTrenutnog);
             return View(trenutni.GlasackiListici);
