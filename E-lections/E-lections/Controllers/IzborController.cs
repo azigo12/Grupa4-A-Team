@@ -11,7 +11,7 @@ namespace E_lections.Controllers
     {
 
         private ELectionsDbContext context;
-        private Izbor trenutni;
+        private int idTrenutnog;
 
         public IzborController(ELectionsDbContext context)
         {
@@ -20,13 +20,14 @@ namespace E_lections.Controllers
 
         public IActionResult Index(int idIzbora)
         {
-            trenutni = context.Izbor.FirstOrDefault(i => i.ID == idIzbora);
-            ViewBag.id = trenutni;
+            idTrenutnog = idIzbora;
+            ViewBag.id = idTrenutnog;
             return View();
         }
 
-        public IActionResult Detalji()
+        public IActionResult Detalji(ICollection<GlasackiListic> gl)
         {
+            var trenutni = context.Izbor.FirstOrDefault(i => i.ID == idTrenutnog);
             return View(trenutni.GlasackiListici);
         }
 
@@ -44,7 +45,7 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Kreiraj(GlasackiListic gl)
         {
-            gl.IzborId = trenutni.ID;
+            gl.IzborId = idTrenutnog;
             context.GlasackiListic.Add(gl);
             context.SaveChanges();
             return View("Index");
