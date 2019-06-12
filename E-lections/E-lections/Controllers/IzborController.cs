@@ -11,14 +11,16 @@ namespace E_lections.Controllers
     {
 
         private ELectionsDbContext context;
+        private Izbor trenutni;
 
         public IzborController(ELectionsDbContext context)
         {
             this.context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Izbor izbor)
         {
+            trenutni = izbor;
             return View();
         }
 
