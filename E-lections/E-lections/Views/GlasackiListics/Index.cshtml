@@ -49,4 +49,15 @@
     </tbody>
 </table>
 
-
+<ul id="menu">
+    <li>
+        @using (Html.BeginForm("Index", "Izbor", FormMethod.Get))
+        {
+            <input type="submit" value="Nazad"/>
+        }
+        @using (Html.BeginForm("Create", "GlasackiListics", FormMethod.Get))
+        {
+            <input type="submit" value="Kreiraj glasački listić"/>
+        }
+    </li>
+</ul>
