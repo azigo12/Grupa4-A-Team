@@ -68,59 +68,6 @@ namespace E_lections.Controllers
             return View(glasackiListic);
         }
 
-        // GET: GlasackiListics/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var glasackiListic = await _context.GlasackiListic.FindAsync(id);
-            if (glasackiListic == null)
-            {
-                return NotFound();
-            }
-            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "KantonOgranicenje", glasackiListic.IzborId);
-            return View(glasackiListic);
-        }
-
-        // POST: GlasackiListics/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MaxOdabir,BrojGlasova,Opis,IzborId")] GlasackiListic glasackiListic)
-        {
-            if (id != glasackiListic.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(glasackiListic);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GlasackiListicExists(glasackiListic.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "KantonOgranicenje", glasackiListic.IzborId);
-            return View(glasackiListic);
-        }
-
         // GET: GlasackiListics/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -144,7 +91,7 @@ namespace E_lections.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
-        {
+        { 
             var glasackiListic = await _context.GlasackiListic.FindAsync(id);
             _context.GlasackiListic.Remove(glasackiListic);
             await _context.SaveChangesAsync();
