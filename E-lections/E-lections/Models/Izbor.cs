@@ -8,7 +8,9 @@ namespace E_lections.Models
 {
     public enum StatusIzbora
     {
+        [Display(Name = "AKTIVAN")]
         Aktivan,
+        [Display(Name = "NEAKTIVAN")]
         Neaktivan
     }
 
