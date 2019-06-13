@@ -33,10 +33,10 @@
                             ZDK
                         </label>
                     </div>
-                    <div class="form-group">
-                        <select asp-for="Status" class="form-control">
-                            <option value="akt">AKTIVAN</option>
-                            <option value="neakt">NEAKTIVAN</option>
+                    <div class="form">
+                        <select asp-for="@Model.Status" asp-items="Html.GetEnumSelectList<StatusIzbora>()" class="form-control">
+                            <option value="AKTIVAN">AKTIVAN</option>
+                            <option value="NEAKTIVAN">NEAKTIVAN</option>
                         </select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
