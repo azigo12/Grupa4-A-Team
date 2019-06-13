@@ -66,46 +66,10 @@ namespace E_lections.Controllers
             return View(osobe);
         }
 
-        public IActionResult KreirajIzbore()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult KreirajIzbore(Izbor izbor)
-        {
-            context.Izbor.Add(izbor);
-            context.SaveChanges();
-            return View("Index");
-        }
-
-        public IActionResult Izbori()
-        {
-            var izbori = context.Izbor.ToList();
-            return View(izbori);
-        }
-
         public IActionResult Kandidati()
         {
             var kandidati = context.Kandidat.ToList();
             return View(kandidati);
-        }
-
-        public IActionResult BrisanjeIzbora(int? id)
-        {
-            var izbor = context.Izbor.FirstOrDefault(i => i.ID == id);
-            if (izbor != null)
-            {
-                context.Izbor.Remove(izbor);
-                context.SaveChanges();
-            }
-            var izbori = context.Izbor.ToList();
-            return View("Izbori", izbori);
-        }
-
-        public IActionResult DetaljiIzbora(int? id)
-        {
-            return RedirectToAction("Index","Izbor", new { idIzbora = id });
         }
 
     }
