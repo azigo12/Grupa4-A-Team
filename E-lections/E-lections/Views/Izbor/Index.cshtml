@@ -44,6 +44,7 @@
     </tbody>
 </table>
 
-<h2>
-    @Html.ActionLink("Kreiraj izbor", "Create", "Izbor")
-</h2>
+@using(Html.BeginForm("Create","Izbor"))
+{
+    <input type="submit" value="Kreiraj izbore" />
+}
