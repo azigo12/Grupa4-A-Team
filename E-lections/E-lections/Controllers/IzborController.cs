@@ -129,7 +129,7 @@ namespace E_lections.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.Message = "Da li ste sigurni da želite ovo?";
             return View(izbor);
         }
 
