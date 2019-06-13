@@ -1,15 +1,11 @@
 ﻿@model IEnumerable<E_lections.Models.Izbor>
 
 @{
-    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -20,35 +16,34 @@
                 @Html.DisplayNameFor(model => model.Opis)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KantonOgranicenje)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pocetak)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Opis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KantonOgranicenje)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pocetak)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Ažuriraj informacije</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Obriši</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<h2>
+    @Html.ActionLink("Kreiraj izbor", "Create", "Izbor")
+</h2>
