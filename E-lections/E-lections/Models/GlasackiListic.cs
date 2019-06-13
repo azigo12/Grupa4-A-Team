@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,8 +9,10 @@ namespace E_lections.Models
     public class GlasackiListic : IObserver
     {
         public int ID { get; set; }
+        [Required]
         public int MaxOdabir { get; set; }
         public int BrojGlasova { get; set; }
+        [Required, MaxLength(100)]
         public string Opis { get; set; }
 
 
