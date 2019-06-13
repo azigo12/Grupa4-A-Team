@@ -12,6 +12,9 @@
             <th>
                 Opis izbora
             </th>
+            <th>
+                Broj opcija
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +23,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxOdabir)
                 </td>
             </tr>
         }
