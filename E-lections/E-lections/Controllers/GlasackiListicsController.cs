@@ -40,7 +40,7 @@ namespace E_lections.Controllers
             {
                 return NotFound();
             }
-
+            glasackiListic.Kandidati = _context.Kandidat.Where(k => k.GlasackiListicId == id).ToList();
             return View(glasackiListic);
         }
 
