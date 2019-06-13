@@ -11,7 +11,6 @@ namespace E_lections.Models
         public int MaxOdabir { get; set; }
         public int BrojGlasova { get; set; }
         public string Opis { get; set; }
-        private List<IUcesnik> prijavljeni;
 
 
         public virtual Izbor Izbor { get; set; }
@@ -23,7 +22,6 @@ namespace E_lections.Models
         public void RegistrujUcesnika(IUcesnik ucesnik)
         {
             //throw new NotImplementedException();
-            prijavljeni.Add(ucesnik);
         }
 
         public void Update()
