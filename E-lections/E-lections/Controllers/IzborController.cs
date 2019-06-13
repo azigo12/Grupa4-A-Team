@@ -38,7 +38,7 @@ namespace E_lections.Controllers
             {
                 return NotFound();
             }
-            if (izbor.GlasackiListici == null) izbor.GlasackiListici = new List<GlasackiListic>();
+            izbor.GlasackiListici = _context.GlasackiListic.Where(g => g.IzborId == id).ToList();
             return View(izbor);
         }
 
