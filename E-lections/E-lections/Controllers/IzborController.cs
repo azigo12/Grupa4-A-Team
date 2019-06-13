@@ -38,7 +38,7 @@ namespace E_lections.Controllers
             {
                 return NotFound();
             }
-
+            if (izbor.GlasackiListici == null) izbor.GlasackiListici = new List<GlasackiListic>();
             return View(izbor);
         }
 
