@@ -28,14 +28,23 @@
             <tbody>
                 @foreach (var item in Model.Kandidati)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Prezime)
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatumRodjenja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JMBG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrojLicneKarte)
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
