@@ -115,28 +115,8 @@ namespace E_lections.Controllers
             return View(izbor);
         }
 
-        // GET: Izbor/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var izbor = await _context.Izbor
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (izbor == null)
-            {
-                return NotFound();
-            }
-            ViewBag.Message = "Da li ste sigurni da želite ovo?";
-            return View(izbor);
-        }
-
-        // POST: Izbor/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+       
+        public async Task<IActionResult> Delete(int id)
         {
             var izbor = await _context.Izbor.FindAsync(id);
             _context.Izbor.Remove(izbor);
