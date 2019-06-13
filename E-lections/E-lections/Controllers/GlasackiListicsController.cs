@@ -68,7 +68,7 @@ namespace E_lections.Controllers
             return View(glasackiListic);
         }
 
-        // GET: GlasackiListics/Delete/5
+       
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -83,16 +83,6 @@ namespace E_lections.Controllers
             {
                 return NotFound();
             }
-
-            return View(glasackiListic);
-        }
-
-        // POST: GlasackiListics/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        { 
-            var glasackiListic = await _context.GlasackiListic.FindAsync(id);
             _context.GlasackiListic.Remove(glasackiListic);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
