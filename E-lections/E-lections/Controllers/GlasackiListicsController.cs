@@ -47,7 +47,7 @@ namespace E_lections.Controllers
         // GET: GlasackiListics/Create
         public IActionResult Create()
         {
-            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "KantonOgranicenje");
+            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "Opis");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace E_lections.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "KantonOgranicenje", glasackiListic.IzborId);
+            ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "Opis", glasackiListic.IzborId);
             return View(glasackiListic);
         }
 
