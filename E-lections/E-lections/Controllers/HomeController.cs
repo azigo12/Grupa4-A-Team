@@ -11,6 +11,7 @@ namespace E_lections.Controllers
     public class HomeController : Controller
     {
         private ELectionsDbContext context;
+        public static Osoba currentlyLogged = null; 
 
         public HomeController(ELectionsDbContext context)
         {
@@ -47,8 +48,16 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Login(String username, String password)
         {
-            if (username.Equals("admin") && password.Equals("admin")) return RedirectToAction("Index", "Admin");
-            var osoba = context.Osoba.FirstOrDefault(o => o.JMBG == username && o.Lozinka == password);
+            var osoba = context.Osoba.Where(o => o.JMBG.Equals(username) && o.Lozinka.Equals(password));
+            var admin = context.Admin.Where(a => a.JMBG.Equals(username) && a.Lozinka.Equals(password));
+            if(osoba.Count() == 0 && admin.Count() == 0)
+            {
+                return View("Index");
+            }
+            else if(admin.Count() == 0)
+            {
+
+            }
             return View("Index");
         }
 
