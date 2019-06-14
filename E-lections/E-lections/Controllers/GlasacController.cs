@@ -35,10 +35,11 @@ namespace E_lections.Controllers
             {
                 ViewBag.Message = "Napustili ste stranku!";
                 var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == HomeController.currentlyLogged.StrankaId);
-                stranka.UpisiUStranku.Remove(HomeController.currentlyLogged);
+                var osoba = stranka.UpisiUStranku.First(o => o.StrankaId == HomeController.currentlyLogged.StrankaId);
+                stranka.UpisiUStranku.Remove(osoba);
+                _context.SaveChanges();
                 HomeController.currentlyLogged.StrankaId = null;
                 HomeController.currentlyLogged.Stranka = null;
-                _context.SaveChanges();
             }
             return View("Index");
         }
