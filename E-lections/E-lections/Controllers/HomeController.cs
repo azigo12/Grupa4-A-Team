@@ -59,8 +59,8 @@ namespace E_lections.Controllers
             else if (osoba.Count() != 0)
             {
                 currentlyLogged = osoba.First();
-                if (currentlyLogged is Glasac) return View("../Glasac/Index", currentlyLogged);
-                else return View("../Kandidat/Index", currentlyLogged);
+                if (currentlyLogged is Glasac) return RedirectToAction("Index", "Glasac");
+                else return RedirectToAction("Index", "Kandidat");
             }
             return RedirectToAction("Index", "Admin");
         }
