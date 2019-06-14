@@ -30,7 +30,7 @@ namespace E_lections.Controllers
         public IActionResult UclaniSe(int id)
         {
             var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == id);
-            //stranka.UpisiUStranku.Add(HomeController.currentlyLogged);
+            stranka.UpisiUStranku.Add(HomeController.currentlyLogged);
             _context.SaveChanges();
             return View("Index");
         }
