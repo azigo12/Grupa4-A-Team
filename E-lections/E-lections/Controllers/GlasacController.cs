@@ -77,5 +77,6 @@ namespace E_lections.Controllers
             HomeController.currentlyLogged = null;
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

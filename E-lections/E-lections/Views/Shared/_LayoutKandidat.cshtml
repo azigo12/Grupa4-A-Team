@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="A-Team">
+    <title>E-lections | Dobrodosli </title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/list.css">
+    <link rel="stylesheet" href="~/css/input.css">
+</head>
+<body class="with_image">
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">E-</span>Lections</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a asp-action="Index">Početna</a></li>
+                    <li><a asp-controller="Kandidat" asp-action="Izbori">Izbori</a></li>
+                    <li><a asp-controller="Kandidat" asp-action="Profil">Uredi profil</a></li>
+                    <li><a asp-controller="Kandidat" asp-action="LogOut">Odjavi se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container1">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer1">
+        <p> E-lections, Copyright &copy; OOAD 2019</p>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
