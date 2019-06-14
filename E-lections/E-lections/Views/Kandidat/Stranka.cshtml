@@ -1,0 +1,39 @@
+﻿@model IEnumerable<E_lections.Models.Stranka>
+
+@{
+    Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
+}
+
+<body>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naziv)
+                    </td>
+                    <td>
+                        <a asp-action="UclaniSe" asp-route-id="@item.ID">Učlani se</a> |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />
+     @if(ViewBag.Message != null)
+      {
+        <h2>
+            @ViewBag.Message
+        </h2>
+      }
+</body>

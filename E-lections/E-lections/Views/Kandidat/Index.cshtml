@@ -1,0 +1,30 @@
+﻿@model E_lections.Models.Glasac
+
+@{
+    Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
+}
+
+
+
+<body>
+    <div class="signin">
+        <div>
+            <ul class="list">
+                <li>
+                    <a class="link" asp-action="Stranka" asp-controller="Glasac" asp-area="">Učlani se u stranku</a>
+                </li>
+                <li>
+                    <a class="link" asp-action="NapustiStranku" asp-controller="Glasac" asp-area="">Napusti stranku</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    @if(ViewBag.Message != null)
+    {
+        <h2>
+            @ViewBag.Message
+        </h2>
+    }
+</body>
+
