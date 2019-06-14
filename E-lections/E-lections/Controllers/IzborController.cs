@@ -32,13 +32,12 @@ namespace E_lections.Controllers
                 return NotFound();
             }
 
-            var izbor = await _context.Izbor
+            var izbor = await _context.Izbor.Include(g => g.GlasackiListici)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (izbor == null)
             {
                 return NotFound();
             }
-            izbor.GlasackiListici = _context.GlasackiListic.Where(g => g.IzborId == id).ToList();
             return View(izbor);
         }
 
