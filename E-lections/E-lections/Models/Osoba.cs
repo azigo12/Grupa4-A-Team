@@ -36,7 +36,7 @@ namespace E_lections.Models
         public string Kanton { get; set; }
 
         //veze sa drugim tabelama
-        public int StrankaId { get; set; }
+        public int? StrankaId { get; set; }
         public virtual Stranka Stranka { get; set; }
 
         public int? BirackoMjestoID { get; set; }
