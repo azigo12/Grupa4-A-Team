@@ -75,7 +75,7 @@ namespace E_lections.Controllers
 
         public IActionResult Prijava(int? id)
         {
-            Kandidat k = (Kandidat)HomeController.currentlyLogged;
+            Kandidat k = getKandidat(HomeController.currentlyLogged);
             if(k.GlasackiListicId != null)
             {
                 ViewBag.Message = "Već ste prijavljeni na izbore!";
@@ -92,6 +92,23 @@ namespace E_lections.Controllers
         {
             HomeController.currentlyLogged = null;
             return RedirectToAction("Index", "Home");
+        }
+
+        private Kandidat getKandidat(Osoba osoba)
+        {
+            Kandidat k = new Kandidat();
+            k.Ime = osoba.Ime;
+            k.Prezime = osoba.Prezime;
+            k.DatumRodjenja = osoba.DatumRodjenja;
+            k.JMBG = osoba.JMBG;
+            k.BrojLicneKarte = osoba.BrojLicneKarte;
+            k.BirackoMjestoID = osoba.BirackoMjestoID;
+            k.StrankaId = osoba.StrankaId;
+            k.Spol = osoba.Spol;
+            k.Ulica = osoba.Ulica;
+            k.Kanton = osoba.Kanton;
+            k.Lozinka = osoba.Lozinka;
+            return k;
         }
     }
 }
