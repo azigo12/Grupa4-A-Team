@@ -51,18 +51,18 @@ namespace E_lections.Controllers
         {
             var osoba = context.Osoba.Include(o => o.Stranka).Where(o => o.JMBG.Equals(username) && o.Lozinka.Equals(password));
             var admin = context.Admin.Where(a => a.JMBG.Equals(username) && a.Lozinka.Equals(password));
-            if(osoba.Count() == 0 && admin.Count() == 0)
+            if (osoba.Count() == 0 && admin.Count() == 0)
             {
                 ViewBag.Message = "Niste registrovani na sistem!";
-                return View("Index");
+                return View();
             }
-            else if(osoba.Count() != 0)
+            else if (osoba.Count() != 0)
             {
                 currentlyLogged = osoba.First();
                 if (currentlyLogged is Glasac) return View("../Glasac/Index", currentlyLogged);
                 else return View("../Kandidat/Index", currentlyLogged);
             }
-            return View("../Admin/Index");
+            return RedirectToAction("Index", "Admin");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
