@@ -21,6 +21,11 @@ namespace E_lections.Controllers
             return View("Index", HomeController.currentlyLogged);
         }
 
+        public IActionResult Stranka();
+        {
+            return View(_context.Stranka.ToList());
+        }
+
         public IActionResult LogOut()
         {
             HomeController.currentlyLogged = null;
