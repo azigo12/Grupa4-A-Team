@@ -78,5 +78,12 @@ namespace E_lections.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult Prijava()
+        {
+            var glasac = _context.Glasac.FirstOrDefault(i => i.ID == HomeController.currentlyLogged.ID);
+            _context.Glasac.Remove(glasac);
+            Kandidat k = new Kandidat(glasac);
+        }
+
     }
 }
