@@ -101,10 +101,21 @@ namespace E_lections.Controllers
             k2.Prezime = "Selimović2";
             lista.Add(k);
             lista.Add(k2);
-            return View(lista);
+            GlasackiListic gl = new GlasackiListic();
+            gl.Kandidati = lista;
+            return View(gl.Kandidati);
         }
 
-
+        [HttpPost]
+        public string Glasaj(IEnumerable<Kandidat> kandidati)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            foreach(var item in kandidati)
+            { 
+                 sb.Append(item.Ime);
+            }
+            return sb.ToString();
+        }
 
         private Kandidat getKandidat(Osoba osoba)
         {

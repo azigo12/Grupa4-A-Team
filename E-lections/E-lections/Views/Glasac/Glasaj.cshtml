@@ -5,14 +5,16 @@
 }
 
 
+@using (Html.BeginForm())
+{ 
 @foreach (var item in Model)
 {
-    <input type="checkbox" id="@item.ID" name="glasovi" value="@item.ID" />
-    <label for="optionId">@item.Ime @item.Prezime</label>
-    <hr />
+ 
+        @Html.HiddenFor(m => item.Ime)
+      
+        @item.Ime;
+        <br />
 }
 
-@using (Html.BeginForm("Glasaj", "Glasac", FormMethod.Post))
-{
-    <input type="submit" value="Glasaj" />
+<input type="submit" value="Glasaj" />
 }
