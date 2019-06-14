@@ -48,13 +48,13 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Login(String username, String password)
         {
-            var osoba = context.Osoba.Where(o => o.JMBG.Equals(username) && o.Lozinka.Equals(password));
+            var osoba = context.Osoba.ToList();
             var admin = context.Admin.Where(a => a.JMBG.Equals(username) && a.Lozinka.Equals(password));
             if(osoba.Count() == 0 && admin.Count() == 0)
             {
                 return View("Index");
             }
-            else if(admin.Count() == 0)
+            else if(osoba.Count() != 0)
             {
                 currentlyLogged = osoba.First();
                 if (currentlyLogged is Glasac) return View("../Glasac/Index", currentlyLogged);
