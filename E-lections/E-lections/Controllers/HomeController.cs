@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using E_lections.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_lections.Controllers
 {
@@ -48,7 +49,7 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Login(String username, String password)
         {
-            var osoba = context.Osoba.Where(o => o.JMBG.Equals(username) && o.Lozinka.Equals(password));
+            var osoba = context.Osoba.Include(o => o.Stranka).Where(o => o.JMBG.Equals(username) && o.Lozinka.Equals(password));
             var admin = context.Admin.Where(a => a.JMBG.Equals(username) && a.Lozinka.Equals(password));
             if(osoba.Count() == 0 && admin.Count() == 0)
             {
