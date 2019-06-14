@@ -56,9 +56,11 @@ namespace E_lections.Controllers
             }
             else if(admin.Count() == 0)
             {
-
+                currentlyLogged = osoba.First();
+                if (currentlyLogged is Glasac) return View("../Glasac/Index", currentlyLogged);
+                else return View("../Kandidat/Index", currentlyLogged);
             }
-            return View("Index");
+            return View("../Admin/Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
