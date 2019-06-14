@@ -65,6 +65,7 @@ namespace E_lections.Controllers
 
         public IActionResult Detalji(int? id)
         {
+            ViewBag.Listic = _context.Kandidat.FirstOrDefault(k => k.ID == HomeController.currentlyLogged.ID).GlasackiListicId;
             return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
