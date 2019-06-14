@@ -34,7 +34,8 @@ namespace E_lections.Controllers
             else
             {
                 ViewBag.Message = "Napustili ste stranku!";
-                HomeController.currentlyLogged.Stranka.UpisiUStranku.Remove(HomeController.currentlyLogged);
+                var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == HomeController.currentlyLogged.StrankaId);
+                stranka.UpisiUStranku.Remove(HomeController.currentlyLogged);
                 HomeController.currentlyLogged.StrankaId = null;
                 HomeController.currentlyLogged.Stranka = null;
                 _context.SaveChanges();
