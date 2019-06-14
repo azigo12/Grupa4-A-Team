@@ -89,9 +89,10 @@ namespace E_lections.Controllers
             return RedirectToAction("Change", "Home");
         }
 
-        public IActionResult Glasaj()
+        public IActionResult Glasaj(int? id)
         {
-            return View();
+            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            return View(opcije.Kandidati);
         }
 
         private Kandidat getKandidat(Osoba osoba)
