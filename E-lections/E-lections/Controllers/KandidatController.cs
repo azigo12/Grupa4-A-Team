@@ -20,7 +20,7 @@ namespace E_lections.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index", HomeController.currentlyLogged);
         }
 
         public IActionResult Izbori()
