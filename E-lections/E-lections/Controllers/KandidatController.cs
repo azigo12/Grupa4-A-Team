@@ -76,7 +76,7 @@ namespace E_lections.Controllers
         public IActionResult Prijava(int? id)
         {
             Kandidat k = _context.Kandidat.Include(ka => ka.GlasackiListic).Where(ka => ka.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
-            if(k.GlasackiListicId != null)
+            if(k.GlasackiListic != null)
             {
                 ViewBag.Message = "Već ste prijavljeni na izbore!";
                 return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
