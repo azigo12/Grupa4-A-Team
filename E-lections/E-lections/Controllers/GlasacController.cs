@@ -92,8 +92,19 @@ namespace E_lections.Controllers
         public IActionResult Glasaj(int? id)
         {
             var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
-            return View(opcije.Kandidati);
+            List<Kandidat> lista = new List<Kandidat>();
+            Kandidat k = new Kandidat();
+            k.Ime = "Denis";
+            k.Prezime = "Selimović";
+            Kandidat k2 = new Kandidat();
+            k2.Ime = "Denis2";
+            k2.Prezime = "Selimović2";
+            lista.Add(k);
+            lista.Add(k2);
+            return View(lista);
         }
+
+
 
         private Kandidat getKandidat(Osoba osoba)
         {
