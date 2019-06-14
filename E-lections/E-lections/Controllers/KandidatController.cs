@@ -88,27 +88,21 @@ namespace E_lections.Controllers
             return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
         }
 
+        public IActionResult Odjava(int? id)
+        {
+            Kandidat k = _context.Kandidat.Include(ka => ka.GlasackiListic).Where(ka => ka.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).FirstOrDefault(g => g.ID == id);
+            glasackiListic.Kandidati.Remove(k);
+            _context.SaveChanges();
+            ViewBag.Message = "Odjavili ste sa izbora!";
+            return View("izbori", _context.Izbor.Include(i => i.GlasackiListici).ToList());
+        }
+
         public IActionResult LogOut()
         {
             HomeController.currentlyLogged = null;
             return RedirectToAction("Index", "Home");
         }
 
-        private Kandidat getKandidat(Osoba osoba)
-        {
-            Kandidat k = new Kandidat();
-            k.Ime = osoba.Ime;
-            k.Prezime = osoba.Prezime;
-            k.DatumRodjenja = osoba.DatumRodjenja;
-            k.JMBG = osoba.JMBG;
-            k.BrojLicneKarte = osoba.BrojLicneKarte;
-            k.BirackoMjestoID = osoba.BirackoMjestoID;
-            k.StrankaId = osoba.StrankaId;
-            k.Spol = osoba.Spol;
-            k.Ulica = osoba.Ulica;
-            k.Kanton = osoba.Kanton;
-            k.Lozinka = osoba.Lozinka;
-            return k;
-        }
     }
 }
