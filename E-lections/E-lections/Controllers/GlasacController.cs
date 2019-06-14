@@ -62,6 +62,10 @@ namespace E_lections.Controllers
             return View("Index");
         }
 
+        public IActionResult Detalji(int? id)
+        {
+            return View(_context.GlasackiListic.Where(i => i.IzborId == id).ToList());
+        }
         public IActionResult LogOut()
         {
             HomeController.currentlyLogged = null;
