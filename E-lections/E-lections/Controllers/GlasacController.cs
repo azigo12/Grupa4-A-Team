@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using E_lections.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_lections.Controllers
 {
@@ -24,6 +25,14 @@ namespace E_lections.Controllers
         public IActionResult Stranka()
         {
             return View(_context.Stranka.ToList());
+        }
+
+        public IActionResult UclaniSe(int id)
+        {
+            var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == id);
+            //stranka.UpisiUStranku.Add(HomeController.currentlyLogged);
+            _context.SaveChanges();
+            return View("Index");
         }
 
         public IActionResult LogOut()

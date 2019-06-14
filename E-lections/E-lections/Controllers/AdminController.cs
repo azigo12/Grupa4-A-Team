@@ -56,7 +56,7 @@ namespace E_lections.Controllers
 
         public IActionResult DetaljiStranke(int? id)
         {
-            var stranka = context.Stranka.FirstOrDefault(s => s.ID == id);
+            var stranka = context.Stranka.Include(s => s.UpisiUStranku).FirstOrDefault(o => o.ID == id);
             return View(stranka);
         }
 
