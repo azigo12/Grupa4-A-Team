@@ -89,6 +89,11 @@ namespace E_lections.Controllers
             return RedirectToAction("Change", "Home");
         }
 
+        public IActionResult Glasaj()
+        {
+            return View();
+        }
+
         private Kandidat getKandidat(Osoba osoba)
         {
             Kandidat k = new Kandidat();
