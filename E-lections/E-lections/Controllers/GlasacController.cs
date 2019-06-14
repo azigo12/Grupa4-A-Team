@@ -27,6 +27,21 @@ namespace E_lections.Controllers
             return View(_context.Stranka.ToList());
         }
 
+        public IActionResult NapustiStranku()
+        {
+            if(HomeController.currentlyLogged.StrankaId == null)
+                ViewBag.Message = "Niste član niti jedne stranke!";
+            else
+            {
+                ViewBag.Message = "Napustili ste stranku!";
+                HomeController.currentlyLogged.Stranka.UpisiUStranku.Remove(HomeController.currentlyLogged);
+                HomeController.currentlyLogged.StrankaId = null;
+                HomeController.currentlyLogged.Stranka = null;
+                _context.SaveChanges();
+            }
+            return View("Index");
+        }
+
         public IActionResult UclaniSe(int id)
         {
             if(HomeController.currentlyLogged.StrankaId != null)
