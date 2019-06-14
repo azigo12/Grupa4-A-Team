@@ -22,6 +22,11 @@ namespace E_lections.Controllers
             return View("Index", HomeController.currentlyLogged);
         }
 
+        public IActionResult Izbori()
+        {
+            return View();
+        }
+
         public IActionResult Stranka()
         {
             return View(_context.Stranka.ToList());
