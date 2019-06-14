@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<E_lections.Models.Izbor>
 
 @{
-    Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
+
 
 <table class="table">
     <thead>
@@ -20,22 +21,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pocetak)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Opis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KantonOgranicenje)
-            </td>
-            <td>
-                <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
-                <a asp-action="Prijava" asp-route-id="@item.ID">Prijavite se</a> 
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pocetak)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KantonOgranicenje)
+                </td>
+                <td>
+                    <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
+                    <a asp-action="Prijava" asp-route-id="@item.ID">Prijavite se</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -81,11 +81,11 @@ namespace E_lections.Controllers
         public IActionResult Prijava()
         {
             var glasac = _context.Glasac.FirstOrDefault(i => i.ID == HomeController.currentlyLogged.ID);
-            _context.Glasac.Remove(glasac);
             Kandidat k = new Kandidat(glasac);
             _context.Kandidat.Add(k);
-            HomeController.currentlyLogged = k;
+            _context.Glasac.Remove(glasac);
             _context.SaveChanges();
+            HomeController.currentlyLogged = k;
             return RedirectToAction("Change", "Home");
         }
 

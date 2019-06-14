@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<E_lections.Models.Stranka>
 
 @{
-    Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
 
 <body>
@@ -30,10 +30,10 @@
     </table>
 
     <hr />
-     @if(ViewBag.Message != null)
-      {
+    @if (ViewBag.Message != null)
+    {
         <h2>
             @ViewBag.Message
         </h2>
-      }
+    }
 </body>

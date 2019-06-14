@@ -1,15 +1,10 @@
 ﻿@model IEnumerable<E_lections.Models.Kandidat>
 
 @{
-    ViewData["Title"] = "DetaljiKandidata";
-    Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
 
-<h1>DetaljiKandidata</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -29,41 +24,42 @@
                 @Html.DisplayNameFor(model => model.Kanton)
             </th>
             <th>
-               Stranka
+                Stranka
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatumRodjenja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Spol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kanton)
-            </td>
-            @if (item.StrankaId != null)
-             {
-               <td>@Html.DisplayFor(modelItem => item.Stranka.Naziv)</td>
-             }
-             else
-             {
-               <td>Nezavisni kandidat</td>
-             }
-            <td>
-                <a asp-action="Profil" asp-route-id="@item.ID">Pogledaj profil</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumRodjenja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Spol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kanton)
+                </td>
+                @if (item.StrankaId != null)
+                {
+                    <td>@Html.DisplayFor(modelItem => item.Stranka.Naziv)</td>
+                }
+                else
+                {
+                    <td>Nezavisni kandidat</td>
+                }
+                <td>
+                    <a asp-action="Profil" asp-route-id="@item.ID">Pogledaj profil</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
