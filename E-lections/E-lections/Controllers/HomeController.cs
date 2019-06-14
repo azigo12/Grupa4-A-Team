@@ -41,14 +41,14 @@ namespace E_lections.Controllers
 
         public IActionResult Login()
         {
-            return RedirectToAction("Index", "Admin");
+            return View();
         }
 
         [HttpPost]
         public IActionResult Login(String username, String password)
         {
-            //ovdje id provjera iz baze
-            //TODO!
+            if (username.Equals("admin") && password.Equals("admin")) return RedirectToAction("Index", "Admin");
+            var osoba = context.Osoba.FirstOrDefault(o => o.JMBG == username && o.Lozinka == password);
             return View("Index");
         }
 
