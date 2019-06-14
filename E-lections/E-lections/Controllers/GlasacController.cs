@@ -31,7 +31,8 @@ namespace E_lections.Controllers
         {
             if(HomeController.currentlyLogged.StrankaId != null)
             {
-
+                ViewBag.Message = "Već ste član stranke!";
+                return View("Stranka", _context.Stranka.ToList());
             }
             var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == id);
             stranka.UpisiUStranku.Add(HomeController.currentlyLogged);
