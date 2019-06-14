@@ -24,7 +24,7 @@ namespace E_lections.Controllers
 
         public IActionResult Izbori()
         {
-            return View();
+            return View(_context.Izbor.Include(i => i.GlasackiListici).Where(i => i.Status == StatusIzbora.Aktivan).ToList());
         }
 
         public IActionResult Stranka()
