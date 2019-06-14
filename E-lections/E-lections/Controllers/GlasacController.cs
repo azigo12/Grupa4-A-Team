@@ -15,6 +15,7 @@ namespace E_lections.Controllers
 
         public IActionResult LogOut()
         {
+            HomeController.currentlyLogged = null;
             return RedirectToAction("Index", "Home");
         }
     }
