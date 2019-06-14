@@ -42,8 +42,8 @@ namespace E_lections.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Pocetak = table.Column<DateTime>(nullable: false),
-                    Opis = table.Column<string>(nullable: true),
-                    KantonOgranicenje = table.Column<string>(nullable: true),
+                    Opis = table.Column<string>(maxLength: 200, nullable: false),
+                    KantonOgranicenje = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -86,7 +86,7 @@ namespace E_lections.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MaxOdabir = table.Column<int>(nullable: false),
                     BrojGlasova = table.Column<int>(nullable: false),
-                    Opis = table.Column<string>(nullable: true),
+                    Opis = table.Column<string>(maxLength: 100, nullable: false),
                     IzborId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -115,9 +115,10 @@ namespace E_lections.Migrations
                     Lozinka = table.Column<string>(nullable: true),
                     Ulica = table.Column<string>(nullable: true),
                     Kanton = table.Column<string>(nullable: true),
-                    StrankaId = table.Column<int>(nullable: false),
+                    StrankaId = table.Column<int>(nullable: true),
                     BirackoMjestoID = table.Column<int>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
+                    brojGlasova = table.Column<int>(nullable: true),
                     ProfilId = table.Column<int>(nullable: true),
                     GlasackiListicId = table.Column<int>(nullable: true)
                 },
@@ -129,13 +130,13 @@ namespace E_lections.Migrations
                         column: x => x.GlasackiListicId,
                         principalTable: "GlasackiListic",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Osoba_Profil_ProfilId",
                         column: x => x.ProfilId,
                         principalTable: "Profil",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Osoba_BirackoMjesto_BirackoMjestoID",
                         column: x => x.BirackoMjestoID,
@@ -147,7 +148,7 @@ namespace E_lections.Migrations
                         column: x => x.StrankaId,
                         principalTable: "Stranka",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

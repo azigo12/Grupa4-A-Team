@@ -80,7 +80,9 @@ namespace E_lections.Migrations
 
                     b.Property<int>("MaxOdabir");
 
-                    b.Property<string>("Opis");
+                    b.Property<string>("Opis")
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.HasKey("ID");
 
@@ -95,9 +97,12 @@ namespace E_lections.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("KantonOgranicenje");
+                    b.Property<string>("KantonOgranicenje")
+                        .IsRequired();
 
-                    b.Property<string>("Opis");
+                    b.Property<string>("Opis")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.Property<DateTime>("Pocetak");
 
@@ -141,7 +146,7 @@ namespace E_lections.Migrations
 
                     b.Property<int>("Spol");
 
-                    b.Property<int>("StrankaId");
+                    b.Property<int?>("StrankaId");
 
                     b.Property<string>("Ulica");
 
@@ -197,9 +202,11 @@ namespace E_lections.Migrations
                 {
                     b.HasBaseType("E_lections.Models.Osoba");
 
-                    b.Property<int>("GlasackiListicId");
+                    b.Property<int?>("GlasackiListicId");
 
-                    b.Property<int>("ProfilId");
+                    b.Property<int?>("ProfilId");
+
+                    b.Property<int>("brojGlasova");
 
                     b.HasIndex("GlasackiListicId");
 
@@ -240,21 +247,18 @@ namespace E_lections.Migrations
 
                     b.HasOne("E_lections.Models.Stranka", "Stranka")
                         .WithMany("UpisiUStranku")
-                        .HasForeignKey("StrankaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StrankaId");
                 });
 
             modelBuilder.Entity("E_lections.Models.Kandidat", b =>
                 {
                     b.HasOne("E_lections.Models.GlasackiListic", "GlasackiListic")
                         .WithMany("Kandidati")
-                        .HasForeignKey("GlasackiListicId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GlasackiListicId");
 
                     b.HasOne("E_lections.Models.Profil", "Profil")
                         .WithOne("Kandidat")
-                        .HasForeignKey("E_lections.Models.Kandidat", "ProfilId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("E_lections.Models.Kandidat", "ProfilId");
                 });
 #pragma warning restore 612, 618
         }
