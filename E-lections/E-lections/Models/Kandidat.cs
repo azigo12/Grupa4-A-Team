@@ -19,6 +19,8 @@ namespace E_lections.Models
 
         public virtual ICollection<BirackoMjestoKandidat> BirackoMjestoKandidati { get; set; }
 
+        public Kandidat() { }
+
         public Kandidat(Osoba osoba)
         {
             this.Ime = osoba.Ime;

@@ -86,7 +86,7 @@ namespace E_lections.Controllers
             _context.Kandidat.Add(k);
             HomeController.currentlyLogged = k;
             _context.SaveChanges();
-            return View("../Kandidat/Index", HomeController.currentlyLogged);
+            return RedirectToAction("Change", "Home");
         }
 
     }
