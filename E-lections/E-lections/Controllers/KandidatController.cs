@@ -73,6 +73,21 @@ namespace E_lections.Controllers
             return View(_context.Kandidat.Where(k => k.GlasackiListicId == id).ToList());
         }
 
+        public IActionResult Prijava(int? id)
+        {
+            Kandidat k = (Kandidat)HomeController.currentlyLogged;
+            if(k.GlasackiListicId != null)
+            {
+                ViewBag.Message = "Već ste prijavljeni na izbore!";
+                return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
+            }
+            ViewBag.Message = "Uspješno ste se prijavili na izbore!";
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).FirstOrDefault(g => g.ID == id);
+            glasackiListic.Kandidati.Add(k);
+            _context.SaveChanges();
+            return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
+        }
+
         public IActionResult LogOut()
         {
             HomeController.currentlyLogged = null;

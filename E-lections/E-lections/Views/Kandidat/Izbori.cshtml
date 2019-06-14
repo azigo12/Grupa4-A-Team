@@ -35,9 +35,12 @@
                 </td>
                 <td>
                     <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
-                    <a asp-action="Prijava" asp-route-id="@item.ID">Prijavite se</a>
                 </td>
             </tr>
         }
     </tbody>
+    @if(ViewBag.Message != null)
+    {
+        <h2>@ViewBag.Message</h2>
+    }
 </table>
