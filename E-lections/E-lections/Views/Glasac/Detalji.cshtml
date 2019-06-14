@@ -24,8 +24,7 @@
                 @Html.DisplayFor(modelItem => item.Opis)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kandidati.Count())
-            </td>
+                @item.Kandidati.Count()
             <td>
                 <a asp-action="DetaljiKandidata" asp-route-id="@item.ID">Details</a> 
             </td>

@@ -64,7 +64,7 @@ namespace E_lections.Controllers
 
         public IActionResult Detalji(int? id)
         {
-            return View(_context.GlasackiListic.Where(i => i.IzborId == id).ToList());
+            return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
         public IActionResult DetaljiKandidata(int? id)
