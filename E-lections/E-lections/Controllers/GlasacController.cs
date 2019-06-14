@@ -81,12 +81,29 @@ namespace E_lections.Controllers
         public IActionResult Prijava()
         {
             var glasac = _context.Glasac.FirstOrDefault(i => i.ID == HomeController.currentlyLogged.ID);
-            Kandidat k = new Kandidat(glasac);
+            Kandidat k = getKandidat(glasac);
             _context.Kandidat.Add(k);
             _context.Glasac.Remove(glasac);
             _context.SaveChanges();
             HomeController.currentlyLogged = k;
             return RedirectToAction("Change", "Home");
+        }
+
+        private Kandidat getKandidat(Osoba osoba)
+        {
+            Kandidat k = new Kandidat();
+            k.Ime = osoba.Ime;
+            k.Prezime = osoba.Prezime;
+            k.DatumRodjenja = osoba.DatumRodjenja;
+            k.JMBG = osoba.JMBG;
+            k.BrojLicneKarte = osoba.BrojLicneKarte;
+            k.BirackoMjestoID = osoba.BirackoMjestoID;
+            k.StrankaId = osoba.StrankaId;
+            k.Spol = osoba.Spol;
+            k.Ulica = osoba.Ulica;
+            k.Kanton = osoba.Kanton;
+            k.Lozinka = osoba.Lozinka;
+            return k;
         }
 
     }

@@ -19,22 +19,7 @@ namespace E_lections.Models
 
         public virtual ICollection<BirackoMjestoKandidat> BirackoMjestoKandidati { get; set; }
 
-        public Kandidat() { }
-
-        public Kandidat(Osoba osoba)
-        {
-            this.Ime = osoba.Ime;
-            this.Prezime = osoba.Prezime;
-            this.DatumRodjenja = osoba.DatumRodjenja;
-            this.JMBG = osoba.JMBG;
-            this.BrojLicneKarte = osoba.BrojLicneKarte;
-            this.BirackoMjestoID = osoba.BirackoMjestoID;
-            this.StrankaId = osoba.StrankaId;
-            this.Spol = osoba.Spol;
-            this.Ulica = osoba.Ulica;
-            this.Kanton = osoba.Kanton;
-        }
-
+        
         public void DodajGlas()
         {
             throw new NotImplementedException();
