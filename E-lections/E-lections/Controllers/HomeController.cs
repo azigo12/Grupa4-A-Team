@@ -73,7 +73,7 @@ namespace E_lections.Controllers
 
         public IActionResult Change()
         {
-            return View("../Kandidat/Index", HomeController.currentlyLogged);
+            return RedirectToAction("Index", "Kandidat");
         }
     }
 }
