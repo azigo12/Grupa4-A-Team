@@ -14,6 +14,8 @@ namespace E_lections.Models
         public int BrojGlasova { get; set; }
         [Required, MaxLength(100)]
         public string Opis { get; set; }
+        public int HistorijaId { get; set; }
+        public virtual HistorijaGlasanja HistorijaGlasanja {get; set;}
 
 
         public virtual Izbor Izbor { get; set; }

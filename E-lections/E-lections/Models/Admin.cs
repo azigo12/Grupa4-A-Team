@@ -7,9 +7,8 @@ namespace E_lections.Models
     public class Admin : IIzbor, IStranka
     {
         public int ID { get; set; }
-        public string JMBG { get; set; }
+        public string Username   { get; set; }
         public string Lozinka { get; set; }
-        public IzvjestajFactory IzvjestajFactory;
 
         public Izvjestaj GenerisiIzvjestaj(string tipIzvjestaja)
         {

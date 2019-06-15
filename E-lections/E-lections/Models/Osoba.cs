@@ -42,6 +42,9 @@ namespace E_lections.Models
         public int? BirackoMjestoID { get; set; }
         public virtual BirackoMjesto BirackoMjesto { get; set; }
 
+        //public int HistorijaGlasanjaId { get; set; }
+        //public virtual HistorijaGlasanja HistorijaGlasanja { get; set; }
+
 
     }
 }
