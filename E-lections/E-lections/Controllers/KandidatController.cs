@@ -111,7 +111,23 @@ namespace E_lections.Controllers
             return View(opcije);
         }
 
-        
+        [HttpPost]
+        public IActionResult Glasaj(string[] glasovi)
+        {
+            List<int> lista = new List<int>();
+            foreach (string s in glasovi)
+            {
+                lista.Add(Int32.Parse(s));
+            }
+            foreach (int id in lista)
+            {
+                var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
+                osoba.brojGlasova++;
+            }
+            _context.SaveChanges();
+            ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
+            return View("Index");
+        }
 
     }
 }
