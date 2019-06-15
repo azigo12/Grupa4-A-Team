@@ -6,25 +6,31 @@
 
 
 
-<body>
-    <div class="signin">
-        <div>
-            <ul class="list">
-                <li>
-                    <a class="link" asp-action="Stranka" asp-controller="Glasac" asp-area="">Učlani se u stranku</a>
-                </li>
-                <li>
-                    <a class="link" asp-action="NapustiStranku" asp-controller="Glasac" asp-area="">Napusti stranku</a>
-                </li>
-            </ul>
+    <body>
+        <div class="signin">
+            <div>
+                <ul class="list">
+                    <li>
+                        <a class="link" asp-action="Stranka" asp-controller="Glasac" asp-area="">Učlani se u stranku</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-action="NapustiStranku" asp-controller="Glasac" asp-area="">Napusti stranku</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <hr />
-    @if(ViewBag.Message != null)
-    {
-        <h2>
-            @ViewBag.Message
-        </h2>
-    }
-</body>
+        <hr />
+        @if (ViewBag.Message != null)
+        {
+            <h2>
+                @ViewBag.Message
+            </h2>
+        }
+        @if (ViewBag.PorukaGlasanje != null)
+        {
+            <h2>
+                @ViewBag.PorukaGlasanje
+            </h2>
+        }
+    </body>
 
