@@ -1,0 +1,15 @@
+﻿@model E_lections.Models.Profil
+
+@{
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
+}
+
+
+<div>
+    <textarea rows="10" cols="20" readonly="readonly" >
+            @Model.Opis
+    </textarea>
+</div>
+<div>
+    <a asp-action="Index">Vrati se na početnu</a>
+</div>
