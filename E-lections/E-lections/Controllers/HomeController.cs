@@ -43,7 +43,7 @@ namespace E_lections.Controllers
 
         public IActionResult Login()
         {
-            return RedirectToAction("Index", "Glasac");
+            return View();
         }
 
         [HttpPost]
