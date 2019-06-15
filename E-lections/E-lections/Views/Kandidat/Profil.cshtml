@@ -1,37 +1,22 @@
-﻿@model E_lections.Models.Profil
-
+﻿
 @{
-    ViewData["Title"] = "Profil";
     Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
 
-<h1>Profil</h1>
+div class="login-dark">
+@using (Html.BeginForm("Profil", "Kandidat"))
+{
+    <form method="post">
+        <h2 class="sr-only">Prijava</h2>
+        <div class="right">
+            <div class="form-group input-form"><input class="form-control" type="text" name="username" placeholder="Korisničko ime"></div>
+            <div class="form-group input-form"><textarea class="form-control" name="profil" required="required" cols="20" rows="10"></textarea></div>
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Uredi profil</button>
+            </div>
+            <div class="btn-group" role="group"></div>
+        </div>
+    </form>
+}
 
-<h4>Profil</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Profil">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
-                <input asp-for="Opis" class="form-control" />
-                <span asp-validation-for="Opis" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PutanjaSlike" class="control-label"></label>
-                <input asp-for="PutanjaSlike" class="form-control" />
-                <span asp-validation-for="PutanjaSlike" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
