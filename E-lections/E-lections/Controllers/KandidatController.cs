@@ -105,5 +105,13 @@ namespace E_lections.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult Glasaj(int? id)
+        {
+            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            return View(opcije);
+        }
+
+        
+
     }
 }
