@@ -17,7 +17,6 @@ namespace E_lections.Models
         public virtual GlasackiListic GlasackiListic { get; set; }
 
         public bool isSelected { get; set; } = false;
-        public virtual ICollection<BirackoMjestoKandidat> BirackoMjestoKandidati { get; set; }
 
         
         public void DodajGlas()
