@@ -22,6 +22,7 @@ namespace E_lections.Models
         public DbSet<Stranka> Stranka { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<HistorijaGlasanja> HistorijaGlasanja { get; set; }
+        public DbSet<Statistika> Statistika { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +35,7 @@ namespace E_lections.Models
             modelBuilder.Entity<Stranka>().ToTable("Stranka");
             modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<HistorijaGlasanja>().ToTable("HistorijaGlasanja");
+            modelBuilder.Entity<Statistika>().ToTable("Statistika");
         }
     }
 }
