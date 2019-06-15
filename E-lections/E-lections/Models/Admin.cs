@@ -10,11 +10,6 @@ namespace E_lections.Models
         public string JMBG   { get; set; }
         public string Lozinka { get; set; }
 
-        public Izvjestaj GenerisiIzvjestaj(string tipIzvjestaja)
-        {
-            throw new NotImplementedException();
-        }
-
         public IIzbor KreirajIzbor()
         {
             throw new NotImplementedException();
