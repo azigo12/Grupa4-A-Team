@@ -7,6 +7,6 @@ namespace E_lections.Models
 {
     public abstract class KandidatDekorater : Osoba
     {
-        private Osoba glasac;
+        //private Osoba glasac;
     }
 }

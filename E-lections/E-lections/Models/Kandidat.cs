@@ -16,7 +16,7 @@ namespace E_lections.Models
         public int? GlasackiListicId { get; set; }
         public virtual GlasackiListic GlasackiListic { get; set; }
 
-        public bool isSelected;
+        public bool isSelected { get; set; } = false;
         public virtual ICollection<BirackoMjestoKandidat> BirackoMjestoKandidati { get; set; }
 
         
