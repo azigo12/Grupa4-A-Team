@@ -1,0 +1,37 @@
+﻿@model E_lections.Models.Profil
+
+@{
+    ViewData["Title"] = "Profil";
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
+}
+
+<h1>Profil</h1>
+
+<h4>Profil</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Profil">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PutanjaSlike" class="control-label"></label>
+                <input asp-for="PutanjaSlike" class="form-control" />
+                <span asp-validation-for="PutanjaSlike" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

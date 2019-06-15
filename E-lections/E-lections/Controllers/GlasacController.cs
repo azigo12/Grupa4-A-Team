@@ -128,6 +128,7 @@ namespace E_lections.Controllers
             k.Kanton = osoba.Kanton;
             k.Lozinka = osoba.Lozinka;
             k.EMail = osoba.EMail;
+            k.isSelected = false;
             return k;
         }
 
