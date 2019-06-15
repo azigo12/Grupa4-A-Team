@@ -17,8 +17,6 @@ namespace E_lections.Models
         public DbSet<Glasac> Glasac { get; set; }
         public DbSet<Kandidat> Kandidat { get; set; }
         public DbSet<Profil> Profil { get; set; }
-        public DbSet<BirackoMjesto> BirackoMjesto { get; set; }
-        public DbSet<BirackoMjestoKandidat> BirackoMjestoKandidat { get; set; }
         public DbSet<GlasackiListic> GlasackiListic { get; set; }
         public DbSet<Izbor> Izbor { get; set; }
         public DbSet<Stranka> Stranka { get; set; }
@@ -31,7 +29,6 @@ namespace E_lections.Models
             modelBuilder.Entity<Glasac>().ToTable("Glasac");
             modelBuilder.Entity<Kandidat>().ToTable("Kandidat");
             modelBuilder.Entity<Profil>().ToTable("Profil");
-            modelBuilder.Entity<BirackoMjesto>().ToTable("BirackoMjesto");
             modelBuilder.Entity<BirackoMjestoKandidat>().ToTable("BirackoMjestoKandidat");
             modelBuilder.Entity<GlasackiListic>().ToTable("GlasackiListic");
             modelBuilder.Entity<Izbor>().ToTable("Izbor");
