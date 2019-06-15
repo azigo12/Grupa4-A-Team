@@ -1,23 +1,29 @@
 ﻿@model E_lections.Models.GlasackiListic
 
 @{
-    ViewData["Title"] = "Glasaj1";
     Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
 }
 
 
-<form asp-action="Glasaj" asp-controller="Glasac" method="post">
-    <ul>
-        @foreach (var item in Model.Kandidati)
-        {
-            <li>
-                <input type="checkbox" asp-for="@item.isSelected" />
-                <label asp-for="@item.Ime">@item.Ime</label>
-                <input type="hidden" asp-for="@item.ID" />
-                <input type="hidden" asp-for="@item.Ime" />
-            </li>
-        }
-    </ul>
-    <button type="submit" name="action">Glasaj</button>
-</form>
+@using (Html.BeginForm("Login", "Home"))
+{
+    <form method="post">
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model.Kandidati)
+                {
+                    <tr>
+                        <td>
+                            @item.Ime @item.Prezime
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="glasovi" value="@item.ID" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="submit" value="Glasaj" />
+    </form>
+}
 
