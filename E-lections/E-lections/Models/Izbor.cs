@@ -28,6 +28,8 @@ namespace E_lections.Models
 
         //veze sa drugim tabelama
         public virtual ICollection<GlasackiListic> GlasackiListici { get; set; }
+        public virtual Statistika Statistika { get; set; }
+        public int StatistikaId { get; set; }
 
         public void Notify()
         {
