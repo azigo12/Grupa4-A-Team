@@ -143,5 +143,11 @@ namespace E_lections.Controllers
             return View("Index");
         }
 
+        public IActionResult ProfilKandidata(int? id)
+        {
+            var kandidat = _context.Kandidat.Include(k => k.Profil).Where(k => k.ID == id).FirstOrDefault();
+            return View(kandidat.Profil);
+        }
+
     }
 }
