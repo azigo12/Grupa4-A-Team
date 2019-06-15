@@ -20,6 +20,9 @@ __Denis Selimović, Lamija Vrnjak, Amila Žigo__
 * Treća vrsta korisnika su *kandidati*. Kandidati dobivaju taj status tako što se preko svog glasačkog računa prijave na konkurs za određenu funkciju za koju se glasa pri čemu navode da li su član neke stranke i koje te čekaju odobrenje administratora
 * Obzirom da su i kandidati zapravo glasači oni imaju sve mogućnosti nabrojane u tekstu iznad. Pored toga, imaju mogućnost uređivanja vlastitog profila sve dok izbori ne započnu. 
 
+## Specifikacija funkcionalnosti web servisa:
+*
+
 ## Akteri:
 * __Administrator__ - osoba koja je zadužena za kreiranje i specificiranje detalja o izborima, registraciju novih administratora, odobravanje kandidatskog statusa te kreiranje izvještaja
 * __Glasač__ - osoba koja glasa na izborima i ima mogućnost uvida u profile kandidata 
