@@ -29,7 +29,6 @@ namespace E_lections.Models
             modelBuilder.Entity<Glasac>().ToTable("Glasac");
             modelBuilder.Entity<Kandidat>().ToTable("Kandidat");
             modelBuilder.Entity<Profil>().ToTable("Profil");
-            modelBuilder.Entity<BirackoMjestoKandidat>().ToTable("BirackoMjestoKandidat");
             modelBuilder.Entity<GlasackiListic>().ToTable("GlasackiListic");
             modelBuilder.Entity<Izbor>().ToTable("Izbor");
             modelBuilder.Entity<Stranka>().ToTable("Stranka");

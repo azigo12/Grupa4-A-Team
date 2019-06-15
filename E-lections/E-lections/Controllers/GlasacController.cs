@@ -125,12 +125,13 @@ namespace E_lections.Controllers
             k.DatumRodjenja = osoba.DatumRodjenja;
             k.JMBG = osoba.JMBG;
             k.BrojLicneKarte = osoba.BrojLicneKarte;
-            k.BirackoMjestoID = osoba.BirackoMjestoID;
+            //k.BirackoMjestoID = osoba.BirackoMjestoID;
             k.StrankaId = osoba.StrankaId;
             k.Spol = osoba.Spol;
             k.Ulica = osoba.Ulica;
             k.Kanton = osoba.Kanton;
             k.Lozinka = osoba.Lozinka;
+            k.EMail = osoba.EMail;
             return k;
         }
 

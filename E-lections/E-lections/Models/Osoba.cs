@@ -35,6 +35,8 @@ namespace E_lections.Models
         [Display(Name = "Kanton")]
         public string Kanton { get; set; }
 
+        public string EMail { get; set; }
+
         //veze sa drugim tabelama
         public int? StrankaId { get; set; }
         public virtual Stranka Stranka { get; set; }
