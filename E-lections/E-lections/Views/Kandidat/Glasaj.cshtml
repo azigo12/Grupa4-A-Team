@@ -1,0 +1,28 @@
+﻿@model E_lections.Models.GlasackiListic
+
+@{
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
+}
+
+
+@using (Html.BeginForm("Login", "Home"))
+{
+    <form method="post">
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model.Kandidati)
+                {
+                    <tr>
+                        <td>
+                            @item.Ime @item.Prezime
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="glasovi" value="@item.ID" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="submit" value="Glasaj" />
+    </form>
+}
