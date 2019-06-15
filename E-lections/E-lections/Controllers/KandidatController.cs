@@ -129,5 +129,10 @@ namespace E_lections.Controllers
             return View("Index");
         }
 
+        public IActionResult Profil()
+        {
+            return View();
+        }
+
     }
 }
