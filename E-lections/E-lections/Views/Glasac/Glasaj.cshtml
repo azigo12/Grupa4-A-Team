@@ -1,20 +1,23 @@
-﻿@model IEnumerable<E_lections.Models.Kandidat>
+﻿@model E_lections.Models.GlasackiListic
 
 @{
+    ViewData["Title"] = "Glasaj1";
     Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
 }
 
 
-@using (Html.BeginForm())
-{ 
-@foreach (var item in Model)
-{
- 
-        @Html.HiddenFor(m => item.Ime)
-      
-        @item.Ime;
-        <br />
-}
+<form asp-action="Glasaj" asp-controller="Glasac" method="post">
+    <ul>
+        @foreach (var item in Model.Kandidati)
+        {
+            <li>
+                <input type="checkbox" asp-for="@item.isSelected" />
+                <label asp-for="@item.Ime">@item.Ime</label>
+                <input type="hidden" asp-for="@item.ID" />
+                <input type="hidden" asp-for="@item.Ime" />
+            </li>
+        }
+    </ul>
+    <button type="submit" name="action">Glasaj</button>
+</form>
 
-<input type="submit" value="Glasaj" />
-}

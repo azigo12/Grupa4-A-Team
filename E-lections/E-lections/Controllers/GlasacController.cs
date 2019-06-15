@@ -103,14 +103,14 @@ namespace E_lections.Controllers
             lista.Add(k2);
             GlasackiListic gl = new GlasackiListic();
             gl.Kandidati = lista;
-            return View(gl.Kandidati);
+            return View(gl);
         }
 
         [HttpPost]
-        public string Glasaj(IEnumerable<Kandidat> kandidati)
+        public string Glasaj(GlasackiListic gl)
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            foreach(var item in kandidati)
+            foreach(var item in gl.Kandidati)
             { 
                  sb.Append(item.Ime);
             }
