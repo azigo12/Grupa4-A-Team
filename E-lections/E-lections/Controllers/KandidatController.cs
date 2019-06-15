@@ -134,5 +134,14 @@ namespace E_lections.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Profil(string profil)
+        {
+            var kandidat = _context.Kandidat.Include(k => k.Profil).Where(k => k.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
+            kandidat.Profil.Opis = profil;
+            _context.SaveChanges();
+            return View("Index");
+        }
+
     }
 }
