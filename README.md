@@ -21,7 +21,7 @@ __Denis Selimović, Lamija Vrnjak, Amila Žigo__
 * Obzirom da su i kandidati zapravo glasači oni imaju sve mogućnosti nabrojane u tekstu iznad. Pored toga, imaju mogućnost uređivanja vlastitog profila sve dok izbori ne započnu. 
 
 ## Specifikacija funkcionalnosti web servisa:
-*
+* Prilikom registracije glasač mora navesti svoju e-mail adresu na koju će mu biti poslan e-mail sa kodom. Unosom tog koda mu se osposobljava račun.
 
 ## Akteri:
 * __Administrator__ - osoba koja je zadužena za kreiranje i specificiranje detalja o izborima, registraciju novih administratora, odobravanje kandidatskog statusa te kreiranje izvještaja
