@@ -92,29 +92,25 @@ namespace E_lections.Controllers
         public IActionResult Glasaj(int? id)
         {
             var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
-            List<Kandidat> lista = new List<Kandidat>();
-            Kandidat k = new Kandidat();
-            k.Ime = "Denis";
-            k.Prezime = "Selimović";
-            Kandidat k2 = new Kandidat();
-            k2.Ime = "Denis2";
-            k2.Prezime = "Selimović2";
-            lista.Add(k);
-            lista.Add(k2);
-            GlasackiListic gl = new GlasackiListic();
-            gl.Kandidati = lista;
-            return View(gl);
+            return View(opcije);
         }
 
         [HttpPost]
-        public string Glasaj(GlasackiListic gl)
+        public IActionResult Glasaj(string[] glasovi)
         {
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            foreach(var item in gl.Kandidati)
-            { 
-                 sb.Append(item.Ime);
+            List<int> lista = new List<int>();
+            foreach(string s in glasovi)
+            {
+                lista.Add(Int32.Parse(s));
             }
-            return sb.ToString();
+            foreach(int id in lista)
+            {
+                var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
+                osoba.brojGlasova++;
+            }
+            _context.SaveChanges();
+            ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
+            return View("Index");
         }
 
         private Kandidat getKandidat(Osoba osoba)
