@@ -60,10 +60,9 @@ namespace E_lections.Controllers
             return View(stranka);
         }
 
-        public IActionResult Lista(string searching)
+        public IActionResult Lista()
         {
-            var osobe = context.Osoba.Where(o => searching == null || o.Prezime.Contains(searching));
-            return View(osobe);
+            return View(context.Osoba.ToList());
         }
 
         public IActionResult Kandidati()
