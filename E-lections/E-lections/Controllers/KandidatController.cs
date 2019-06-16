@@ -82,13 +82,13 @@ namespace E_lections.Controllers
             if(k.GlasackiListic != null)
             {
                 ViewBag.Message = "Već ste prijavljeni na izbore!";
-                return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
+                return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
             }
             ViewBag.Message = "Uspješno ste se prijavili na izbore!";
             var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).FirstOrDefault(g => g.ID == id);
             glasackiListic.Kandidati.Add(k);
             _context.SaveChanges();
-            return View("Izbori", _context.Izbor.Include(c => c.GlasackiListici).ToList());
+            return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
         }
 
         public IActionResult Odjava(int? id)
