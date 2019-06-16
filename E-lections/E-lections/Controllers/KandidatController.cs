@@ -131,7 +131,10 @@ namespace E_lections.Controllers
 
         public IActionResult Profil()
         {
-            return View();
+            var kandidat = _context.Kandidat.Include(k => k.Profil).Where(k => k.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
+            if (kandidat.Profil == null) kandidat.Profil = new Profil();
+            _context.SaveChanges();
+            return View(kandidat.Profil);
         }
 
         [HttpPost]
