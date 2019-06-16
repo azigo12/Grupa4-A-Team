@@ -128,7 +128,7 @@ namespace E_lections.Controllers
             }
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
-            return View("Index");
+            return View("Detalji",_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
         }
 
         public IActionResult Profil()
