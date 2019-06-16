@@ -12,6 +12,7 @@ namespace E_lections.Controllers
     {
 
         private ELectionsDbContext _context;
+        private static int? currentIzbor;
 
         public KandidatController(ELectionsDbContext context)
         {
@@ -66,6 +67,7 @@ namespace E_lections.Controllers
         public IActionResult Detalji(int? id)
         {
             ViewBag.Listic = _context.Kandidat.FirstOrDefault(k => k.ID == HomeController.currentlyLogged.ID).GlasackiListicId;
+            currentIzbor = id;
             return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
