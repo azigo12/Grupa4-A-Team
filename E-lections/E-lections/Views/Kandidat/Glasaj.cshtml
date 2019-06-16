@@ -8,21 +8,12 @@
 @using (Html.BeginForm("Glasaj", "Kandidat"))
 {
     <form method="post">
-        <table class="table">
-            <tbody>
-                @foreach (var item in Model.Kandidati)
-                {
-                    <tr>
-                        <td>
-                            @item.Ime @item.Prezime
-                        </td>
-                        <td>
-                            <input class="form-control" type="checkbox" name="glasovi" value="@item.ID" />
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        @foreach (var item in Model.Kandidati)
+        {
+            @item.Ime @item.Prezime
+            <input type="checkbox" name="glasovi" value="@item.ID" />
+            <br />
+        }
         <input type="submit" value="Glasaj" />
     </form>
 }
