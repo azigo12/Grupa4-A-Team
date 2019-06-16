@@ -62,7 +62,8 @@ namespace E_lections.Controllers
 
         public IActionResult Lista()
         {
-            return View(context.Osoba.ToList());
+            var osobe = context.Glasac.ToList();
+            return View(osobe);
         }
 
         public IActionResult Kandidati()

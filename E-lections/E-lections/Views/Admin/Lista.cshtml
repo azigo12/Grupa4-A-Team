@@ -1,18 +1,10 @@
 ﻿@model IEnumerable<E_lections.Models.Osoba>
 
 @{
-    ViewData["Title"] = "Lista";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 
-<!--@using (Html.BeginForm("Lista", "Admin", FormMethod.Get))
-{
-    <div class="box">
-        @Html.TextBox("searching", null, new { @class = "input-text-box"})
-        <input type = "submit" value="Traži" ID="search", class="btn"/>
-    </div>
-}-->
     <body>
         <table class="content-table">
             <thead>
@@ -47,15 +39,32 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Prezime)
-                        </td>
-
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatumRodjenja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrojLicneKarte)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JMBG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Spol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ulica)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kanton)
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

@@ -138,6 +138,7 @@ namespace E_lections.Controllers
         public IActionResult Profil(string profil)
         {
             var kandidat = _context.Kandidat.Include(k => k.Profil).Where(k => k.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
+            if (kandidat.Profil == null) kandidat.Profil = new Profil();
             kandidat.Profil.Opis = profil;
             _context.SaveChanges();
             return View("Index");
