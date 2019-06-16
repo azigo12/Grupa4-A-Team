@@ -11,6 +11,7 @@ namespace E_lections.Controllers
     public class GlasacController : Controller
     {
         private ELectionsDbContext _context;
+        private static int? currentIzbor;
 
         public GlasacController(ELectionsDbContext context)
         {
@@ -64,6 +65,7 @@ namespace E_lections.Controllers
 
         public IActionResult Detalji(int? id)
         {
+            currentIzbor = id;
             return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
@@ -110,7 +112,7 @@ namespace E_lections.Controllers
             }
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
-            return View("Index");
+            return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
         }
 
         public IActionResult ProfilKandidata(int? id)
