@@ -1,4 +1,5 @@
-﻿
+﻿@model  E_lections.Models.Profil
+
 @{
     Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
@@ -9,7 +10,14 @@ div class="login-dark">
     <form method="post">
         <h2 class="sr-only">Prijava</h2>
         <div class="right">
-            <div class="form-group input-form"><textarea class="form-control" name="profil" required="required" cols="20" rows="10"></textarea></div>
+            <div class="form-group input-form">
+                <textarea class="form-control" name="profil" required="required" cols="20" rows="10">
+                @if(Model.Opis != null)
+                {
+                    @Model.Opis
+                }
+                </textarea>
+            </div>
             <div class="btn-group" role="group">
                 <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Uredi profil</button>
             </div>
