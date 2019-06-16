@@ -20,28 +20,33 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Opis)
-            </td>
-            <td>
-                @item.Kandidati.Count()
-            <td>
-                <a asp-action="DetaljiKandidata" asp-route-id="@item.ID">Detalji</a>
-            </td>
-            <td>
-                <a asp-action="Glasaj" asp-controller="Kandidat" asp-area="" asp-route-id="@item.ID">Glasaj</a>
-            </td>
-            <td>
-                <a asp-action="Prijava" asp-route-id="@item.ID" asp-controller="Kandidat">Prijavite se</a>
-            </td>
-            @if (ViewBag.Listic != null && ViewBag.Listic == item.ID)
-            {
+            <tr>
                 <td>
-                    <a asp-action="Odjava" asp-route-id="@item.ID" asp-controller="Kandidat">Odjavite se</a>
+                    @Html.DisplayFor(modelItem => item.Opis)
                 </td>
-            }
-        </tr>
+                <td>
+                    @item.Kandidati.Count()
+                <td>
+                    <a asp-action="DetaljiKandidata" asp-route-id="@item.ID">Detalji</a>
+                </td>
+                <td>
+                    <a asp-action="Glasaj" asp-controller="Kandidat" asp-area="" asp-route-id="@item.ID">Glasaj</a>
+                </td>
+                <td>
+                    <a asp-action="Prijava" asp-route-id="@item.ID" asp-controller="Kandidat">Prijavite se</a>
+                </td>
+                @if (ViewBag.Listic != null && ViewBag.Listic == item.ID)
+                {
+                    <td>
+                        <a asp-action="Odjava" asp-route-id="@item.ID" asp-controller="Kandidat">Odjavite se</a>
+                    </td>
+                }
+            </tr>
         }
     </tbody>
 </table>
+
+@if (ViewBag.Message != null)
+{
+    <h2>@ViewBag.Message</h2>
+}
