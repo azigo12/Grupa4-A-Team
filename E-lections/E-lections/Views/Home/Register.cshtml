@@ -46,6 +46,10 @@
                         <span asp-validation-for="Kanton" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <input asp-for="EMail" class="form-control" placeholder="e-mail" />
+                        <span asp-validation-for="EMail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <select asp-for="StrankaId" class="form-control" asp-items="ViewBag.StrankaId"></select>
                     </div>
                     <div class="form-group">

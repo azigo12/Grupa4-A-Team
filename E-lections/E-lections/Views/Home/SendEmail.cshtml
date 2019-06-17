@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "SendEmail";
+}
+
+<!--<h1>Aktivacija računa</h1>
+<h2>Unesite kod koji smo vam poslali na vaš email kako bi aktivirali svoj račun.</h2>
+<div class="row">
+<div class="col-md-4">
+    <form asp-action="SendEmail">
+        <div class="form-group">
+            <label asp-for="Aktivacijski kod" class="control-label"></label>
+            <input asp-for="Aktivacijski kod" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Aktiviraj račun" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+</div>-->
+
+    <body>
+        <div class="login-dark">
+            @using (Html.BeginForm("SendEmail", "Home"))
+            {
+                <form method="post">
+                    <h2 class="sr-only">Aktivacija računa</h2>
+                    <h3>Unesite kod koji smo vam poslali na e-mail kako bi aktivirali svoj račun.</h3>
+                    <div class="right">
+                        <div class="form-group input-form"><input class="form-control" type="text" name="aktivacijskiKod" placeholder="Aktivacijski kod"></div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Aktiviraj račun</button>
+                        </div>
+                        <div class="btn-group" role="group"></div>
+                    </div>
+                </form>
+            }
+        </div>
+        @if (ViewBag.Message != null)
+        {
+            <h2>
+                @ViewBag.Message
+            </h2>
+        }
+        <script src="~/js/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
