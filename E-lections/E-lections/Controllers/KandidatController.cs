@@ -90,10 +90,16 @@ namespace E_lections.Controllers
                 ViewBag.Message = "Već ste prijavljeni na izbore!";
                 return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
             }
-            ViewBag.Message = "Uspješno ste se prijavili na izbore!";
-            var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).FirstOrDefault(g => g.ID == id);
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).Include(g => g.Izbor).FirstOrDefault(g => g.ID == id);
+            var izboriPoc = glasackiListic.Izbor.Pocetak.AddDays(-15);
+            if(DateTime.Now > izboriPoc)
+            {
+                ViewBag.Message = "Prijave su završene!";
+                return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
+            }
             glasackiListic.Kandidati.Add(k);
             _context.SaveChanges();
+            ViewBag.Message = "Uspješno ste se prijavili na izbore!";
             return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
         }
 
