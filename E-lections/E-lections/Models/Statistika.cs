@@ -18,6 +18,8 @@ namespace E_lections.Models
         public int GlasoviNevalidni { get; set; }
         public string GlasoviZaKanton { get; set; }
 
+        public bool Visible { get; set; } = false;
+
         [NotMapped]
         public IDictionary<string, int> Mapa { get; set; }
 
