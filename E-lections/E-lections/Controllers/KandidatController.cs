@@ -73,14 +73,8 @@ namespace E_lections.Controllers
 
         public IActionResult Rezultati(int ?id)
         {
-            var glasackiListic = _context.GlasackiListic.Include(g => g.Izbor).Where(g => g.ID == id).FirstOrDefault();
-            var krajIzbora = glasackiListic.Izbor.Pocetak.AddHours(12);
-            if(DateTime.Now < krajIzbora)
-            {
-                ViewBag.Message = "Izbori još nisu završeni!";
-                return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
-            }
-            return View();
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Izbor).Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            return View(glasackiListic.Kandidati);
         }
 
         public IActionResult DetaljiKandidata(int? id)

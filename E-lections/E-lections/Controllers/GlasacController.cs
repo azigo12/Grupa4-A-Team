@@ -69,6 +69,13 @@ namespace E_lections.Controllers
             return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
+        public IActionResult Rezultati(int? id)
+        {
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Izbor).Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            return View(glasackiListic.Kandidati);
+        }
+
+
         public IActionResult DetaljiKandidata(int? id)
         {
             return View(_context.Kandidat.Where(k => k.GlasackiListicId == id).ToList());
