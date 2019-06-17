@@ -17,13 +17,13 @@ namespace E_lections.Models
     public class Izbor : IObservable, IIzborPrototip 
     {
         public int ID { get; set; }
-        [Required]
+        [Required, Display(Name = "Početak")]
         public DateTime Pocetak { get; set; }
-        [Required, MaxLength(200)]
+        [Required, MaxLength(200), Display(Name = "Opis")]
         public string Opis { get; set; }
-        [Required]
+        [Required, Display(Name = "Kanton")]
         public string KantonOgranicenje { get; set; }
-        [Required]
+        [Required, Display(Name = "Status")]
         public StatusIzbora Status { get; set; }
 
         //veze sa drugim tabelama
