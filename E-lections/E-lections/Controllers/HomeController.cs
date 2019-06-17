@@ -89,8 +89,10 @@ namespace E_lections.Controllers
             {
                 context.Glasac.Add(glasacKojiSeDodaje);
                 context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                ViewBag.Login = "Uspješno ste aktivirali račun!";
+                return RedirectToAction("Login", "Home");
             }
+            ViewBag.Msg = "Pogrešan aktivacijski kod!";
             return View();
         }
 
