@@ -141,6 +141,7 @@ namespace E_lections.Controllers
                 msg = "Unesite prezime!";
                 return false;
             }
+
             return true;
         }
     }

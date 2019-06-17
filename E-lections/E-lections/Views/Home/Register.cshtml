@@ -50,9 +50,6 @@
                         <span asp-validation-for="EMail" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <select asp-for="StrankaId" class="form-control" asp-items="ViewBag.StrankaId"></select>
-                    </div>
-                    <div class="form-group">
                         <label>
                             @Html.RadioButtonFor(m => m.Spol, Spol.Muski, new { @class = "radio-button" })
                             Muški
