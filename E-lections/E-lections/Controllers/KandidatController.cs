@@ -127,6 +127,7 @@ namespace E_lections.Controllers
                 }
                 glasac.HistorijaGlasanja.DodajGlas((int)id);
             }
+            _context.SaveChanges();
             var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
             return View(opcije);
         }
