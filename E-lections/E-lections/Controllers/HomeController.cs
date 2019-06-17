@@ -39,7 +39,6 @@ namespace E_lections.Controllers
         {
             if(ModelState.IsValid)
             {
-                
                 glasacKojiSeDodaje = o;
                 Random rnd = new Random();
                 code = rnd.Next(10000, 99999);
@@ -82,8 +81,8 @@ namespace E_lections.Controllers
         {
             if (code == Int32.Parse(aktivacijskiKod))
             {
-                context.Osoba.Add(glasacKojiSeDodaje);
-                context.SaveChangesAsync();
+                context.Glasac.Add(glasacKojiSeDodaje);
+                context.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
             return View();

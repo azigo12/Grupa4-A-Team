@@ -117,17 +117,18 @@ namespace E_lections.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Ime = table.Column<string>(nullable: false),
-                    Prezime = table.Column<string>(nullable: false),
-                    DatumRodjenja = table.Column<DateTime>(nullable: false),
-                    BrojLicneKarte = table.Column<string>(maxLength: 9, nullable: false),
-                    JMBG = table.Column<string>(maxLength: 13, nullable: false),
+                    Ime = table.Column<string>(nullable: true),
+                    Prezime = table.Column<string>(nullable: true),
+                    DatumRodjenja = table.Column<DateTime>(nullable: true),
+                    BrojLicneKarte = table.Column<string>(nullable: true),
+                    JMBG = table.Column<string>(nullable: true),
                     Spol = table.Column<int>(nullable: false),
                     Lozinka = table.Column<string>(nullable: true),
                     Ulica = table.Column<string>(nullable: true),
                     Kanton = table.Column<string>(nullable: true),
                     EMail = table.Column<string>(nullable: true),
                     StrankaId = table.Column<int>(nullable: true),
+                    HistorijaGlasanjaId = table.Column<int>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
                     brojGlasova = table.Column<int>(nullable: true),
                     ProfilId = table.Column<int>(nullable: true),
@@ -185,7 +186,8 @@ namespace E_lections.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_HistorijaGlasanja_OsobaId",
                 table: "HistorijaGlasanja",
-                column: "OsobaId");
+                column: "OsobaId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Osoba_GlasackiListicId",

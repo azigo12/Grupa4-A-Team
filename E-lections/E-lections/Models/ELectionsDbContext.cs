@@ -36,6 +36,10 @@ namespace E_lections.Models
             modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<HistorijaGlasanja>().ToTable("HistorijaGlasanja");
             modelBuilder.Entity<Statistika>().ToTable("Statistika");
+            modelBuilder.Entity<Osoba>()
+            .HasOne(a => a.HistorijaGlasanja)
+            .WithOne(a => a.Osoba)
+            .HasForeignKey<HistorijaGlasanja>(c => c.OsobaId);
         }
     }
 }

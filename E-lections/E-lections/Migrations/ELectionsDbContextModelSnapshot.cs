@@ -69,7 +69,8 @@ namespace E_lections.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OsobaId");
+                    b.HasIndex("OsobaId")
+                        .IsUnique();
 
                     b.ToTable("HistorijaGlasanja");
                 });
@@ -102,30 +103,26 @@ namespace E_lections.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BrojLicneKarte")
-                        .IsRequired()
-                        .HasMaxLength(9);
+                    b.Property<string>("BrojLicneKarte");
 
-                    b.Property<DateTime>("DatumRodjenja");
+                    b.Property<DateTime?>("DatumRodjenja");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
 
                     b.Property<string>("EMail");
 
-                    b.Property<string>("Ime")
-                        .IsRequired();
+                    b.Property<int?>("HistorijaGlasanjaId");
 
-                    b.Property<string>("JMBG")
-                        .IsRequired()
-                        .HasMaxLength(13);
+                    b.Property<string>("Ime");
+
+                    b.Property<string>("JMBG");
 
                     b.Property<string>("Kanton");
 
                     b.Property<string>("Lozinka");
 
-                    b.Property<string>("Prezime")
-                        .IsRequired();
+                    b.Property<string>("Prezime");
 
                     b.Property<int>("Spol");
 
@@ -238,8 +235,8 @@ namespace E_lections.Migrations
             modelBuilder.Entity("E_lections.Models.HistorijaGlasanja", b =>
                 {
                     b.HasOne("E_lections.Models.Osoba", "Osoba")
-                        .WithMany()
-                        .HasForeignKey("OsobaId")
+                        .WithOne("HistorijaGlasanja")
+                        .HasForeignKey("E_lections.Models.HistorijaGlasanja", "OsobaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

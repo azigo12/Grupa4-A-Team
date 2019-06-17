@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20190612171415_Baza.Designer.cs" />
     <Compile Remove="Migrations\20190615220727_Baza.cs" />
     <Compile Remove="Migrations\20190615220727_Baza.Designer.cs" />
+    <Compile Remove="Migrations\20190617100713_Baza.cs" />
+    <Compile Remove="Migrations\20190617100713_Baza.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
