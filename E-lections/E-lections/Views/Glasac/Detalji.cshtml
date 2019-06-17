@@ -20,19 +20,22 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Opis)
-                </td>
-                <td>
-                    @item.Kandidati.Count()
-                <td>
-                    <a asp-action="DetaljiKandidata" asp-route-id="@item.ID">Detalji</a>
-                </td>
-                <td>
-                    <a asp-action="Glasaj" asp-controller="Glasac" asp-area="" asp-route-id="@item.ID">Glasaj</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @item.Kandidati.Count()
+            <td>
+                <a asp-action="DetaljiKandidata" asp-route-id="@item.ID">Detalji</a>
+            </td>
+            <td>
+                <a asp-action="Glasaj" asp-controller="Glasac" asp-area="" asp-route-id="@item.ID">Glasaj</a>
+            </td>
+            <td>
+                <a asp-action="Rezultati" asp-controller="Glasac" asp-area="" asp-route-id="@item.ID">Rezultati</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
