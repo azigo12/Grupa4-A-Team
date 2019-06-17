@@ -109,6 +109,24 @@ namespace E_lections.Controllers
 
         public IActionResult Glasaj(int? id)
         {
+            var glasac = _context.Osoba.Include(g => g.HistorijaGlasanja).FirstOrDefault(g => g.ID == HomeController.currentlyLogged.ID);
+            if (glasac.HistorijaGlasanja == null)
+            {
+                glasac.HistorijaGlasanja = new HistorijaGlasanja();
+                glasac.HistorijaGlasanja.DodajGlas((int)id);
+            }
+            else
+            {
+                foreach (var listic in glasac.HistorijaGlasanja.DajGlasove())
+                {
+                    if (listic == id)
+                    {
+                        ViewBag.Message = "Već ste glasali na ovim izborima";
+                        return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
+                    }
+                }
+                glasac.HistorijaGlasanja.DodajGlas((int)id);
+            }
             var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
             return View(opcije);
         }
