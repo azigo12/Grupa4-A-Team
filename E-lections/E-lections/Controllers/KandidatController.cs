@@ -71,6 +71,18 @@ namespace E_lections.Controllers
             return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == id).ToList());
         }
 
+        public IActionResult Rezultati(int ?id)
+        {
+            var glasackiListic = _context.GlasackiListic.Include(g => g.Izbor).Where(g => g.ID == id).FirstOrDefault();
+            var krajIzbora = glasackiListic.Izbor.Pocetak.AddHours(12);
+            if(DateTime.Now < krajIzbora)
+            {
+                ViewBag.Message = "Izbori još nisu završeni!";
+                return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
+            }
+            return View();
+        }
+
         public IActionResult DetaljiKandidata(int? id)
         {
             return View(_context.Kandidat.Where(k => k.GlasackiListicId == id).ToList());
