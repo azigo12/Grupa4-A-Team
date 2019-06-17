@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace E_lections.Models
 {
     public class Kandidat : KandidatDekorater, IUcesnik
     {
+        [Display(Name = "Broj glasova")]
         public int brojGlasova { get; set; } = 0;
 
         //veze sa ostalim tabelama, 1:1 veza sa Profil,  1:m veza sa glasackim listicem, m:n veza sa BirackoMjesto
