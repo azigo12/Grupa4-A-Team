@@ -101,7 +101,19 @@ namespace E_lections.Controllers
         public IActionResult Glasaj(int? id)
         {
             var glasac = _context.Osoba.Include(g => g.HistorijaGlasanja).FirstOrDefault(g => g.ID == HomeController.currentlyLogged.ID);
-            if(glasac.HistorijaGlasanja == null)
+            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            if (DateTime.Now < opcije.Izbor.Pocetak)
+            {
+                ViewBag.Glasao = "Izbori još nisu počeli!";
+                return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
+
+            }
+            if (DateTime.Now > opcije.Izbor.Pocetak.AddHours(12))
+            {
+                ViewBag.Glasao = "Izbori su završeni!";
+                return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
+            }
+            if (glasac.HistorijaGlasanja == null)
             {
                 glasac.HistorijaGlasanja = new HistorijaGlasanja();
                 glasac.HistorijaGlasanja.DodajGlas((int)id);
@@ -119,7 +131,6 @@ namespace E_lections.Controllers
                 glasac.HistorijaGlasanja.DodajGlas((int)id);
             }
             _context.SaveChanges();
-            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
             return View(opcije);
         }
 
