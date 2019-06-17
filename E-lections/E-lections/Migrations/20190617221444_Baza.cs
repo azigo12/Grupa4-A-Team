@@ -31,7 +31,8 @@ namespace E_lections.Migrations
                     Pocetak = table.Column<DateTime>(nullable: false),
                     Opis = table.Column<string>(maxLength: 200, nullable: false),
                     KantonOgranicenje = table.Column<string>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    StatistikaID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -98,7 +99,8 @@ namespace E_lections.Migrations
                     GlasoviZensko = table.Column<int>(nullable: false),
                     GlasoviValidni = table.Column<int>(nullable: false),
                     GlasoviNevalidni = table.Column<int>(nullable: false),
-                    GlasoviZaKanton = table.Column<string>(nullable: true)
+                    GlasoviZaKanton = table.Column<string>(nullable: true),
+                    Visible = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,8 +122,8 @@ namespace E_lections.Migrations
                     Ime = table.Column<string>(nullable: true),
                     Prezime = table.Column<string>(nullable: true),
                     DatumRodjenja = table.Column<DateTime>(nullable: true),
-                    BrojLicneKarte = table.Column<string>(nullable: true),
-                    JMBG = table.Column<string>(nullable: true),
+                    BrojLicneKarte = table.Column<string>(maxLength: 9, nullable: true),
+                    JMBG = table.Column<string>(maxLength: 13, nullable: true),
                     Spol = table.Column<int>(nullable: false),
                     Lozinka = table.Column<string>(nullable: true),
                     Ulica = table.Column<string>(nullable: true),
@@ -209,7 +211,8 @@ namespace E_lections.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Statistika_IzborId",
                 table: "Statistika",
-                column: "IzborId");
+                column: "IzborId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
