@@ -141,7 +141,15 @@ namespace E_lections.Controllers
                 msg = "Unesite prezime!";
                 return false;
             }
-
+            DateTime now = DateTime.Today;
+            DateTime glasac = (DateTime)g.DatumRodjenja;
+            int age = now.Year - glasac.Year;
+            if (glasac > now.AddYears(-age)) age--;
+            if(age < 18)
+            {
+                msg = "Niste punoljetni!";
+                return false;
+            }
             return true;
         }
     }
