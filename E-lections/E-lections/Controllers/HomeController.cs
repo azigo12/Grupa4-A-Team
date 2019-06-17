@@ -39,15 +39,16 @@ namespace E_lections.Controllers
         {
             if(ModelState.IsValid)
             {
+                
                 glasacKojiSeDodaje = o;
                 Random rnd = new Random();
                 code = rnd.Next(10000, 99999);
-                return SendMail();
+                return RedirectToAction("SendEmail", "Home");
             }
             return View();
         }
 
-        public IActionResult SendMail() 
+        public IActionResult SendEmail() 
         {
             var fromAddress = new MailAddress("ooad.elections@gmail.com", "Elections");
             var toAddress = new MailAddress(glasacKojiSeDodaje.EMail, null);
@@ -73,11 +74,6 @@ namespace E_lections.Controllers
                 smtp.Send(message);
             }
 
-            return RedirectToAction("SendEmail", "Home");
-        }
-
-        public IActionResult SendEmail()
-        {
             return View();
         }
 
