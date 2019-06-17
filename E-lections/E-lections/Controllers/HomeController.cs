@@ -165,6 +165,11 @@ namespace E_lections.Controllers
                 msg = "Neispravan JMBG!";
                 return false;
             }
+            if(g.EMail == null)
+            {
+                msg = "Unesite email!";
+                return false;
+            }
             try
             {
                 MailAddress m = new MailAddress(g.EMail);
