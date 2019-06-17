@@ -142,6 +142,11 @@ namespace E_lections.Controllers
                 return false;
             }
             DateTime now = DateTime.Today;
+            if(g.DatumRodjenja == null)
+            {
+                msg = "Unesite datum rođenja!";
+                return false;
+            }
             DateTime glasac = (DateTime)g.DatumRodjenja;
             int age = now.Year - glasac.Year;
             if (glasac > now.AddYears(-age)) age--;
