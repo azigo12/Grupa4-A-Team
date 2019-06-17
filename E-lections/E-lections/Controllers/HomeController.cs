@@ -150,6 +150,24 @@ namespace E_lections.Controllers
                 msg = "Niste punoljetni!";
                 return false;
             }
+            if(g.BrojLicneKarte == null || g.BrojLicneKarte.Length != 13)
+            {
+                msg = "Broj lične karte ima 13 karaktera!";
+            }
+            if(g.JMBG == null || g.JMBG.Length != 13)
+            {
+                msg = "Neispravan JMBG!";
+                return false;
+            }
+            try
+            {
+                MailAddress m = new MailAddress(g.EMail);
+            }
+            catch(FormatException e)
+            {
+                msg = "Neispravan email!";
+                return false;
+            }
             return true;
         }
     }
