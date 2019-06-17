@@ -9,7 +9,7 @@ namespace E_lections.Models
     public class GlasackiListic : IObserver
     {
         public int ID { get; set; }
-        [Required]
+        [Required, Display(Name = "Maksimalni broj opcija")]
         public int MaxOdabir { get; set; }
         public int BrojGlasova { get; set; }
         [Required, MaxLength(100)]
