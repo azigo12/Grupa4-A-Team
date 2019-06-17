@@ -155,9 +155,10 @@ namespace E_lections.Controllers
                 msg = "Niste punoljetni!";
                 return false;
             }
-            if(g.BrojLicneKarte == null || g.BrojLicneKarte.Length != 13)
+            if(g.BrojLicneKarte == null || g.BrojLicneKarte.Length != 9)
             {
                 msg = "Broj lične karte ima 13 karaktera!";
+                return false;
             }
             if(g.JMBG == null || g.JMBG.Length != 13)
             {
