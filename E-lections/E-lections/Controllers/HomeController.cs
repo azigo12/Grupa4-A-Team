@@ -37,6 +37,12 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Register(Glasac o)
         {
+            string msg = null;
+            if(IsValid(o, ref msg) == false)
+            {
+                ViewBag.Reg = msg;
+                return View();
+            }
             if(ModelState.IsValid)
             {
                 glasacKojiSeDodaje = o;
@@ -123,5 +129,9 @@ namespace E_lections.Controllers
             return RedirectToAction("Index", "Kandidat");
         }
 
+        private bool IsValid(Glasac g, ref string msg)
+        {
+            return true;
+        }
     }
 }
