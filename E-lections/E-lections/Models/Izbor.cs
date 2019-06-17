@@ -29,6 +29,9 @@ namespace E_lections.Models
         //veze sa drugim tabelama
         public virtual ICollection<GlasackiListic> GlasackiListici { get; set; }
 
+        public int? StatistikaID { get; set; }
+        public virtual Statistika Statistika { get; set; }
+
         public void Notify()
         {
             //throw new NotImplementedException();
