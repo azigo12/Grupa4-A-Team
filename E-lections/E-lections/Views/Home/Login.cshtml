@@ -23,19 +23,25 @@
                     <div class="form-group input-form"><input class="form-control" type="text" name="username" placeholder="Korisničko ime"></div>
                     <div class="form-group input-form"><input class="form-control" type="password" name="password" placeholder="Lozinka"></div>
                     <div class="btn-group" role="group">
-                        <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit" >Prijavite se</button>
+                        <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Prijavite se</button>
                     </div>
                     <div class="btn-group" role="group"></div>
                 </div>
-               
-               
+
+
             </form>
         }
     </div>
-    @if(ViewBag.Message != null)
+    @if (ViewBag.Message != null)
     {
         <h2>
             @ViewBag.Message
+        </h2>
+    }
+    @if (ViewBag.Login != null)
+    {
+        <h2>
+            @ViewBag.Login
         </h2>
     }
     <script src="~/js/jquery.min.js"></script>
