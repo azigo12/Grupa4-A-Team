@@ -131,6 +131,16 @@ namespace E_lections.Controllers
 
         private bool IsValid(Glasac g, ref string msg)
         {
+            if(g.Ime == null || g.Ime == "")
+            {
+                msg = "Unesite ime!";
+                return false;
+            }
+            if (g.Prezime == null || g.Ime == "")
+            {
+                msg = "Unesite prezime!";
+                return false;
+            }
             return true;
         }
     }
