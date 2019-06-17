@@ -105,7 +105,7 @@ namespace E_lections.Controllers
                 {
                     if(listic == id)
                     {
-                        ViewBag.Message = "Već ste glasali na ovim izborima";
+                        ViewBag.Glasao = "Već ste glasali na ovim izborima";
                         return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
                     }
                 }
