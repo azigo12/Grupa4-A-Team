@@ -20,15 +20,9 @@ namespace E_lections.Models
             glasovi += glasackiListicId + ",";
         }
 
-        public static string RemoveLast(string text, string character)
-        {
-            if (text.Length < 1) return text;
-            return text.Remove(text.ToString().LastIndexOf(character), character.Length);
-        }
-
         public IList<int> DajGlasove()
         {
-            RemoveLast(glasovi, ",");
+            glasovi = glasovi.Substring(0, glasovi.Length - 1);
             string[] niz = glasovi.Split(',');
             IList<int> lista = new List<int>();
             for(int i = 0; i < niz.Length; i++)
