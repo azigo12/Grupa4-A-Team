@@ -58,7 +58,8 @@ namespace E_lections.Controllers
                 return View("Stranka", _context.Stranka.ToList());
             }
             var stranka = _context.Stranka.Include(c => c.UpisiUStranku).FirstOrDefault(s => s.ID == id);
-            stranka.UpisiUStranku.Add(HomeController.currentlyLogged);
+            var osoba = _context.Osoba.Where(o => o.ID == HomeController.currentlyLogged.ID).FirstOrDefault();
+            stranka.UpisiUStranku.Add(osoba);
             _context.SaveChanges();
             return View("Index");
         }
