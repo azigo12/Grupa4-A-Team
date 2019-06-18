@@ -9,8 +9,9 @@
         {
             <form method="post">
                 <div>
+                 <label>Unesite tekst koji će svi glasači moći vidjeti</label>
                     <div>
-                        <textarea class="form-control" name="profil" required="required" cols="20" rows="10" placeholder="Unesite tekst koji će glasači moći vidjeti">
+                        <textarea class="form-control" name="profil" required="required" cols="20" rows="10">
                 @if(Model.Opis != null)
                 {
                     @Model.Opis
