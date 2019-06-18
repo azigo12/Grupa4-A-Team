@@ -23,11 +23,11 @@ namespace E_lections.Models
         [NotMapped]
         public IDictionary<string, int> Mapa { get; set; }
 
-        public static string RemoveLast(string text, string character)
+        /*public static string RemoveLast(string text, string character)
         {
             if (text.Length < 1) return text;
             return text.Remove(text.ToString().LastIndexOf(character), character.Length);
-        }
+        }*/
 
         public string DajGlasove()
         {
@@ -36,8 +36,8 @@ namespace E_lections.Models
             {
                 rezultat += entry.Key + "," + entry.Value + "/";
             }
-
-            RemoveLast(rezultat, "/");
+            rezultat = rezultat.Substring(0, rezultat.Length - 1);
+           // RemoveLast(rezultat, "/");
             return rezultat;
         }
 
