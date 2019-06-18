@@ -92,7 +92,7 @@ namespace E_lections.Controllers
                 return View("Detalji", _context.GlasackiListic.Include(g => g.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
             }
             var glasackiListic = _context.GlasackiListic.Include(g => g.Kandidati).Include(g => g.Izbor).FirstOrDefault(g => g.ID == id);
-            var izboriPoc = glasackiListic.Izbor.Pocetak.AddDays(-15);
+            var izboriPoc = glasackiListic.Izbor.Pocetak;
             if(DateTime.Now > izboriPoc)
             {
                 ViewBag.Message = "Prijave su završene!";
