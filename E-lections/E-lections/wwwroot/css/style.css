@@ -85,6 +85,10 @@ footer {
     color: black;
 }
 
+.whiteLetters {
+    color: white;
+}
+
 /* Showcase */
 #showcase {
     min-height: 500px;

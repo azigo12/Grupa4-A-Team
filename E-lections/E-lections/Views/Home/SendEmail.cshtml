@@ -1,31 +1,16 @@
 ﻿
 @{
     ViewData["Title"] = "SendEmail";
-}
-
-<!--<h1>Aktivacija računa</h1>
-<h2>Unesite kod koji smo vam poslali na vaš email kako bi aktivirali svoj račun.</h2>
-<div class="row">
-<div class="col-md-4">
-    <form asp-action="SendEmail">
-        <div class="form-group">
-            <label asp-for="Aktivacijski kod" class="control-label"></label>
-            <input asp-for="Aktivacijski kod" class="form-control" />
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Aktiviraj račun" class="btn btn-primary" />
-        </div>
-    </form>
-</div>
-</div>-->
 
     <body>
         <div class="signin">
             @using (Html.BeginForm("SendEmail", "Home"))
             {
-                <form method="post">
-                    <h2 class="sr-only">Aktivacija računa</h2>
-                    <h3>Unesite kod koji smo vam poslali na e-mail kako bi aktivirali svoj račun.</h3>
+            <form method="post">
+                <h2 class="whiteLetters">Aktivacija računa</h2>
+                <p class="whiteLetters">Unesite kod koji smo vam</p>
+                <p class="whiteLetters">poslali na e-mail</p>
+                <p class="whiteLetters">kako bi aktivirali svoj račun.</p>
                     <div>
                         <div class="form-group input-form"><input class="form-control" type="text" name="aktivacijskiKod" placeholder="Aktivacijski kod"></div>
                         <div class="btn-group" role="group">
@@ -33,7 +18,7 @@
                         </div>
                         <div class="btn-group" role="group"></div>
                     </div>
-                </form>
+</form>
             }
         </div>
         <div align ="center">
