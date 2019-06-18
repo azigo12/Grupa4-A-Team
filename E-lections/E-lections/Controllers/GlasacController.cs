@@ -101,7 +101,7 @@ namespace E_lections.Controllers
         public IActionResult Glasaj(int? id)
         {
             var glasac = _context.Osoba.Include(g => g.HistorijaGlasanja).FirstOrDefault(g => g.ID == HomeController.currentlyLogged.ID);
-            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Where(g => g.ID == id).FirstOrDefault();
+            var opcije = _context.GlasackiListic.Include(g => g.Kandidati).Include(g => g.Izbor).Where(g => g.ID == id).FirstOrDefault();
             if (DateTime.Now < opcije.Izbor.Pocetak)
             {
                 ViewBag.Glasao = "Izbori još nisu počeli!";
