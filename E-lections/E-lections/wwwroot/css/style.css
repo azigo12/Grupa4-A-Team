@@ -105,6 +105,20 @@ header {
     align-self:center
 }
 
+.footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    background-color: #293e6a;
+    color: white;
+    text-align: center;
+    align-content: center;
+}
+
 .signin {
     border: thin;
     border: 2px solid #ed1c24;
