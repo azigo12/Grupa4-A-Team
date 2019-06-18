@@ -34,17 +34,35 @@
                         <span asp-validation-for="JMBG" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input asp-for="Lozinka" class="form-control" placeholder="Lozinka" type="password"/>
+                        <input asp-for="Lozinka" class="form-control" placeholder="Lozinka" type="password" />
                         <span asp-validation-for="Lozinka" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input asp-for="Ulica" class="form-control" placeholder="Ulica" />
                         <span asp-validation-for="Ulica" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <input asp-for="Kanton" class="form-control" placeholder="Kanton" />
-                        <span asp-validation-for="Kanton" class="text-danger"></span>
+                    <!--
+    <div class="form-group">
+        <input asp-for="Kanton" class="form-control" placeholder="Kanton" />
+        <span asp-validation-for="Kanton" class="text-danger"></span>
+    </div>
+        -->
+
+                    <div class="form">
+                        <select asp-for="@Model.Kanton" class="form-control">
+                            <option value="Unsko-sanski kanton" class="menuItem">Unsko-sanski kanton</option>
+                            <option value="Posavski kanton" class="menuItem">Posavski kanton</option>
+                            <option value="Tuzlanski kanton" class="menuItem">Tuzlanski kanton</option>
+                            <option value="Zeničko-dobojski kanton" class="menuItem">Zeničko-dobojski kanton</option>
+                            <option value="Bosansko-podrinjski kanton Goražde" class="menuItem">Bosansko-podrinjski kanton Goražde</option>
+                            <option value="Srednjobosanski kanton" class="menuItem">Srednjobosanski kanton</option>
+                            <option value="	Hercegovačko-neretvanski kanton" class="menuItem">	Hercegovačko-neretvanski kanton</option>
+                            <option value="Zapadnohercegovački kanton" class="menuItem">Zapadnohercegovački kanton</option>
+                            <option value="Kanton Sarajevo" class="menuItem">Kanton Sarajevo</option>
+                            <option value="Kanton 10" class="menuItem">Kanton 10</option>
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <input asp-for="EMail" class="form-control" placeholder="e-mail" />
                         <span asp-validation-for="EMail" class="text-danger"></span>
