@@ -4,25 +4,25 @@
     Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
 }
 
-@using (Html.BeginForm("Profil", "Kandidat"))
-{
-    <form method="post">
-        <h2 class="sr-only">Prijava</h2>
-        <div class="right">
-            <div class="form-group input-form">
-                <textarea class="form-control" name="profil" required="required" cols="20" rows="10">
+    <div class="signin">
+        @using (Html.BeginForm("Profil", "Kandidat"))
+        {
+            <form method="post">
+                <div>
+                    <div>
+                        <textarea class="form-control" name="profil" required="required" cols="20" rows="10" placeholder="Unesite tekst koji će glasači moći vidjeti">
                 @if(Model.Opis != null)
                 {
                     @Model.Opis
                 }
                 </textarea>
-            </div>
-            <div class="btn-group" role="group">
-                <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Uredi profil</button>
-            </div>
-            <div class="btn-group" role="group"></div>
-        </div>
-    </form>
-}
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn" id="btnSignIn" type="submit">Uredi profil</button>
+                    </div>
+                    <div class="btn-group" role="group"></div>
+                </div>
+            </form>
+        }</div>
 
 
