@@ -85,14 +85,18 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult SendEmail(string aktivacijskiKod)
         {
-            if (code == Int32.Parse(aktivacijskiKod))
+            if(aktivacijskiKod == null)
+            {
+                ViewBag.Msg = "Unesite aktivacijski kod!";
+            }
+            else if (code == Int32.Parse(aktivacijskiKod))
             {
                 context.Glasac.Add(glasacKojiSeDodaje);
                 context.SaveChanges();
                 ViewBag.Login = "Uspješno ste aktivirali račun! Prijavite se!";
                 return RedirectToAction("Login", "Home");
             }
-            ViewBag.Msg = "Pogrešan aktivacijski kod!";
+            else ViewBag.Msg = "Pogrešan aktivacijski kod!";
             return View();
         }
 
