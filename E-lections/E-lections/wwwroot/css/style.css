@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
     background-color: #f4f4f4;
+    height: 100%;
 }
 
 .with-image {
@@ -105,18 +106,14 @@ header {
     align-self:center
 }
 
-.footer {
-    position: fixed;
-    height: 50px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    width: 100%;
-    background-color: #293e6a;
-    color: white;
+.footer1 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
     text-align: center;
-    align-content: center;
 }
 
 .signin {
