@@ -91,24 +91,6 @@ header {
         min-height:100%;
     }
 
-/*footer {
-    padding: 20px;
-    color: #ffffff;
-    background-color: #293e6a;
-    text-align: center;
-    height: 50px;
-    margin-top: 10px;
-}
-
-.footer1 {
-    padding: 20px;
-    color: #ffffff;
-    background-color: #293e6a;
-    text-align: center;
-    height: 50px;
-    margin-top: 200px;
-}*/
-
 /*text boxes*/
 .form-control {
     width: 60%;
