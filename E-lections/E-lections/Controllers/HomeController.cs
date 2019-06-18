@@ -172,8 +172,14 @@ namespace E_lections.Controllers
                 msg = "Unesite lozinku koja ima 6 ili više karaktera!";
                 return false;
             }
-            if(g.Kanton.Equals("Kanton")) {
-                g.Kanton = null;
+            if (g.Ulica == null)
+            {
+                msg = "Unesite ulicu!";
+                return false;
+            }
+            if (g.Kanton.Equals("Kanton")) {
+                msg = "Unesite kanton!";
+                return false;
             }
             if (g.EMail == null)
             {
