@@ -5,31 +5,31 @@
 }
 
 
-<div>
- <table class="table">
-    <thead>
-        <tr>
-            <th>
-                Opis izbora
-            </th>
-            <th>
-                Broj opcija
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model.GlasackiListici)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Opis)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaxOdabir)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-</div>
+    <body>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Opis izbora
+                        </th>
+                        <th>
+                            Broj opcija
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.GlasackiListici)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Opis)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaxOdabir)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+    </body>
 
