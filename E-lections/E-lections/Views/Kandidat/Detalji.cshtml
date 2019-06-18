@@ -49,17 +49,19 @@
     </tbody>
 </table>
 
-@if (ViewBag.Message != null)
-{
-    <h2>@ViewBag.Message</h2>
-}
-@if (ViewBag.PorukaGlasanje != null)
-{
-    <h2>
-        @ViewBag.PorukaGlasanje
-    </h2>
-}
-@if (ViewBag.Glasao != null)
-{
-    <h2>@ViewBag.Message</h2>
-}
+<div align="center">
+    @if (ViewBag.Message != null)
+    {
+        <h2>@ViewBag.Message</h2>
+    }
+    @if (ViewBag.PorukaGlasanje != null)
+    {
+        <h2>
+            @ViewBag.PorukaGlasanje
+        </h2>
+    }
+    @if (ViewBag.Glasao != null)
+    {
+        <h2>@ViewBag.Message</h2>
+    }
+    </div>

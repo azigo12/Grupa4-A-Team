@@ -36,18 +36,20 @@
                 </form>
             }
         </div>
-        @if (ViewBag.Message != null)
-        {
-            <h2>
-                @ViewBag.Message
-            </h2>
-        }
-        @if (ViewBag.Msg != null)
-        {
-            <h2>
-                @ViewBag.Msg
-            </h2>
-        }
+        <div align ="center">
+            @if (ViewBag.Message != null)
+            {
+                <h2>
+                    @ViewBag.Message
+                </h2>
+            }
+            @if (ViewBag.Msg != null)
+            {
+                <h2>
+                    @ViewBag.Msg
+                </h2>
+            }
+        </div>
         <script src="~/js/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
