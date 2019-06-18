@@ -81,6 +81,10 @@ footer {
     margin-top: 10px;
 }
 
+.menuItem {
+    color: black;
+}
+
 /* Showcase */
 #showcase {
     min-height: 500px;

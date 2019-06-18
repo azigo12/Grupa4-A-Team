@@ -16,26 +16,43 @@
                     @Html.TextAreaFor(model => model.Opis, new { @class = "form-control" })
                     <span asp-validation-for="Opis" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <span asp-validation-for="KantonOgranicenje" class="text-danger"></span>
-                    <br />
-                    <label>
-                        @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK", new { @class = "radio-button" })
-                        SK
-                    </label>
-                    <label>
-                        @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK", new { @class = "radio-button" })
-                        TK
-                    </label>
-                    <label>
-                        @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK", new { @class = "radio-button" })
-                        ZDK
-                    </label>
-                </div>
+                <!--<div class="form-group">
+        <span asp-validation-for="KantonOgranicenje" class="text-danger"></span>
+        <br />
+        <label>
+            @Html.RadioButtonFor(model => model.KantonOgranicenje, "SK", new { @class = "radio-button" })
+            SK
+        </label>
+        <label>
+            @Html.RadioButtonFor(model => model.KantonOgranicenje, "TK", new { @class = "radio-button" })
+            TK
+        </label>
+        <label>
+            @Html.RadioButtonFor(model => model.KantonOgranicenje, "ZDK", new { @class = "radio-button" })
+            ZDK
+        </label>
+    </div>-->
+
                 <div class="form">
-                    <select asp-for="@Model.Status" asp-items="Html.GetEnumSelectList<StatusIzbora>()" class="form-control" >
-                            <option value="AKTIVAN">AKTIVAN</option>
-                            <option value="NEAKTIVAN">NEAKTIVAN</option>
+                    <select asp-for="@Model.KantonOgranicenje" class="form-control">
+                        <option value="Unsko-sanski kanton" class="menuItem">Unsko-sanski kanton</option>
+                        <option value="Posavski kanton"class="menuItem">Posavski kanton</option>
+                        <option value="Tuzlanski kanton" class="menuItem">Tuzlanski kanton</option>
+                        <option value="Zeničko-dobojski kanton" class="menuItem">Zeničko-dobojski kanton</option>
+                        <option value="Bosansko-podrinjski kanton Goražde" class="menuItem">Bosansko-podrinjski kanton Goražde</option>
+                        <option value="Srednjobosanski kanton" class="menuItem">Srednjobosanski kanton</option>
+                        <option value="	Hercegovačko-neretvanski kanton" class="menuItem">	Hercegovačko-neretvanski kanton</option>
+                        <option value="Zapadnohercegovački kanton" class="menuItem">Zapadnohercegovački kanton</option>
+                        <option value="Kanton Sarajevo" class="menuItem">Kanton Sarajevo</option>
+                        <option value="Kanton 10" class="menuItem">Kanton 10</option>
+                    </select>
+                </div>
+
+
+                <div class="form">
+                    <select asp-for="@Model.Status" class="form-control">
+                        <option value="AKTIVAN" class="menuItem">Aktivan</option>
+                        <option value="NEAKTIVAN" class="menuItem">Neaktivan</option>
                     </select>
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
