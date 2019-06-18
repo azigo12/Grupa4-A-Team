@@ -20,16 +20,16 @@
 </div>-->
 
     <body>
-        <div class="login-dark">
+        <div class="signin">
             @using (Html.BeginForm("SendEmail", "Home"))
             {
                 <form method="post">
                     <h2 class="sr-only">Aktivacija računa</h2>
                     <h3>Unesite kod koji smo vam poslali na e-mail kako bi aktivirali svoj račun.</h3>
-                    <div class="right">
+                    <div>
                         <div class="form-group input-form"><input class="form-control" type="text" name="aktivacijskiKod" placeholder="Aktivacijski kod"></div>
                         <div class="btn-group" role="group">
-                            <button class="btn btn-primary btn-lg inputBtn" id="btnSignIn" type="submit">Aktiviraj račun</button>
+                            <button class="btn" id="btnSignIn" type="submit">Aktiviraj račun</button>
                         </div>
                         <div class="btn-group" role="group"></div>
                     </div>

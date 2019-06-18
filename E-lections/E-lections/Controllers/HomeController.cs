@@ -159,7 +159,7 @@ namespace E_lections.Controllers
             }
             if(g.BrojLicneKarte == null || g.BrojLicneKarte.Length != 9)
             {
-                msg = "Broj lične karte ima 13 karaktera!";
+                msg = "Broj lične karte ima 9 karaktera!";
                 return false;
             }
             if(g.JMBG == null || g.JMBG.Length != 13)
@@ -167,7 +167,12 @@ namespace E_lections.Controllers
                 msg = "Neispravan JMBG!";
                 return false;
             }
-            if(g.EMail == null)
+            if (g.Lozinka == null || g.Lozinka.Length < 6)
+            {
+                msg = "Unesite lozinku koja ima 6 ili više karaktera!";
+                return false;
+            }
+            if (g.EMail == null)
             {
                 msg = "Unesite email!";
                 return false;
