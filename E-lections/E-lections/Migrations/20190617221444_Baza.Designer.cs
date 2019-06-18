@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_lections.Migrations
 {
     [DbContext(typeof(ELectionsDbContext))]
-    [Migration("20190617103125_Baza")]
+    [Migration("20190617221444_Baza")]
     partial class Baza
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,6 +92,8 @@ namespace E_lections.Migrations
 
                     b.Property<DateTime>("Pocetak");
 
+                    b.Property<int?>("StatistikaID");
+
                     b.Property<int>("Status");
 
                     b.HasKey("ID");
@@ -105,7 +107,8 @@ namespace E_lections.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BrojLicneKarte");
+                    b.Property<string>("BrojLicneKarte")
+                        .HasMaxLength(9);
 
                     b.Property<DateTime?>("DatumRodjenja");
 
@@ -118,7 +121,8 @@ namespace E_lections.Migrations
 
                     b.Property<string>("Ime");
 
-                    b.Property<string>("JMBG");
+                    b.Property<string>("JMBG")
+                        .HasMaxLength(13);
 
                     b.Property<string>("Kanton");
 
@@ -174,9 +178,12 @@ namespace E_lections.Migrations
 
                     b.Property<int>("IzborId");
 
+                    b.Property<bool>("Visible");
+
                     b.HasKey("ID");
 
-                    b.HasIndex("IzborId");
+                    b.HasIndex("IzborId")
+                        .IsUnique();
 
                     b.ToTable("Statistika");
                 });
@@ -252,8 +259,8 @@ namespace E_lections.Migrations
             modelBuilder.Entity("E_lections.Models.Statistika", b =>
                 {
                     b.HasOne("E_lections.Models.Izbor", "Izbor")
-                        .WithMany()
-                        .HasForeignKey("IzborId")
+                        .WithOne("Statistika")
+                        .HasForeignKey("E_lections.Models.Statistika", "IzborId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

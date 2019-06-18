@@ -40,6 +40,10 @@ namespace E_lections.Models
             .HasOne(a => a.HistorijaGlasanja)
             .WithOne(a => a.Osoba)
             .HasForeignKey<HistorijaGlasanja>(c => c.OsobaId);
+            modelBuilder.Entity<Izbor>()
+            .HasOne(a => a.Statistika)
+            .WithOne(a => a.Izbor)
+            .HasForeignKey<Statistika>(c => c.IzborId);
         }
     }
 }
