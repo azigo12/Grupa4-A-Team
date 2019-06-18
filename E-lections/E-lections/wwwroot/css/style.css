@@ -72,6 +72,15 @@ header {
         font-weight: bold;
     }
 
+footer {
+    padding: 20px;
+    color: #ffffff;
+    background-color: #293e6a;
+    text-align: center;
+    height: 50px;
+    margin-top: 10px;
+}
+
 /* Showcase */
 #showcase {
     min-height: 500px;
@@ -112,13 +121,13 @@ header {
     border: thin;
     border: 2px solid #ed1c24;
     background: #293e6a;
-    padding: 140px;
+    padding: 40px;
     width: 250px;
     margin: auto;
-    margin-top: 140px;
-    margin-bottom:20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     height: auto;
-    align-content: center;
+    align-content: center
 }
 
 ::-webkit-input-placeholder { /* Chrome */
