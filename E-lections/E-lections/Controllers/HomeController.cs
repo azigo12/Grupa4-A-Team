@@ -112,7 +112,7 @@ namespace E_lections.Controllers
             var admin = context.Admin.Where(a => a.JMBG.Equals(username) && a.Lozinka.Equals(password));
             if (osoba.Count() == 0 && admin.Count() == 0)
             {
-                ViewBag.Message = "Niste registrovani na sistem!";
+                ViewBag.Message = "Pogrešni pristupni podaci!";
                 return View();
             }
             else if (osoba.Count() != 0)
