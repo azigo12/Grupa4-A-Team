@@ -75,11 +75,11 @@ namespace E_lections.Controllers
         public IActionResult Izvjestaj(int id)
         {
             var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == id).FirstOrDefault();
-            if (izbor.Pocetak > DateTime.Now) ViewBag.Izvjestaj = "Izbori nisu poceli!";
+            if (izbor.Pocetak > DateTime.Now) ViewBag.Izvjestaj = "Izbori nisu počeli!";
             else
             {
                 if (izbor.Statistika == null) izbor.Statistika = new Statistika();
-                ViewBag.Izvjestaj = "Izvjestaj je generisan!";
+                ViewBag.Izvjestaj = "Izvještaj je generisan!";
                 izbor.Statistika.Visible = true;
                 _context.SaveChanges();
             }
