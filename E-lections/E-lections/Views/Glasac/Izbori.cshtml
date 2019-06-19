@@ -33,6 +33,10 @@
             </td>
             <td>
                 <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
+                @if(item.Statistika != null && item.Statistika.Visible == true)
+                {
+                    <a asp-action="Izvjestaj" asp-route-id="@item.ID">Izvještaj</a>
+                }
             </td>
         </tr>
 }
