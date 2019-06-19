@@ -86,6 +86,13 @@ namespace E_lections.Controllers
             return View("Index", _context.Izbor.Include(g => g.GlasackiListici).ToList());
         }
         
+        public IActionResult IzvView(int id)
+        {
+            var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == id).FirstOrDefault();
+            if (izbor.Statistika == null) izbor.Statistika = new Statistika();
+            return View(izbor.Statistika);
+        }
+
         private bool IzborExists(int id)
         {
             return _context.Izbor.Any(e => e.ID == id);
