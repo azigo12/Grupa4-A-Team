@@ -154,7 +154,11 @@ namespace E_lections.Controllers
             if (HomeController.currentlyLogged.Spol == Spol.Muski) izbor.Statistika.GlasoviMusko++;
             else izbor.Statistika.GlasoviZensko++;
             if (glasovi.Length == 0 || glasovi.Length > glas.MaxOdabir) izbor.Statistika.GlasoviNevalidni++;
-            else izbor.Statistika.GlasoviValidni++;
+            else
+            {
+                izbor.Statistika.GlasoviValidni++;
+                izbor.Statistika.DodajGlas(HomeController.currentlyLogged.Kanton);
+            }
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
             return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
