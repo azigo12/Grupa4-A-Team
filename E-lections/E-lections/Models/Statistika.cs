@@ -25,7 +25,7 @@ namespace E_lections.Models
         public bool Visible { get; set; } = false;
 
         [NotMapped]
-        public IDictionary<string, int> Mapa { get; set; }
+        public IDictionary<string, int> Mapa { get; set; } = new Dictionary<string, int>();
 
         /*public static string RemoveLast(string text, string character)
         {
