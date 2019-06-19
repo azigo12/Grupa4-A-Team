@@ -169,6 +169,13 @@ namespace E_lections.Controllers
                 var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
                 osoba.brojGlasova++;
             }
+            var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == currentIzbor).FirstOrDefault();
+            var glas = _context.GlasackiListic.Where(i => i.IzborId == currentIzbor).FirstOrDefault();
+            if (izbor.Statistika == null) izbor.Statistika = new Statistika();
+            if (HomeController.currentlyLogged.Spol == Spol.Muski) izbor.Statistika.GlasoviMusko++;
+            else izbor.Statistika.GlasoviZensko++;
+            if (glasovi.Length == 0 || glasovi.Length > glas.MaxOdabir) izbor.Statistika.GlasoviNevalidni++;
+            else izbor.Statistika.GlasoviValidni++;
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
             return View("Detalji",_context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
