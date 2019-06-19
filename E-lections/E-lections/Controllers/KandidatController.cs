@@ -178,7 +178,6 @@ namespace E_lections.Controllers
             else
             {
                 izbor.Statistika.GlasoviValidni++;
-                izbor.Statistika.DodajGlas(HomeController.currentlyLogged.Kanton);
             }
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
