@@ -12,6 +12,7 @@ namespace E_lections.Controllers
     {
         private ELectionsDbContext _context;
         private static int? currentIzbor;
+        private static int? listicId;
 
         public GlasacController(ELectionsDbContext context)
         {
@@ -79,6 +80,7 @@ namespace E_lections.Controllers
 
         public IActionResult DetaljiKandidata(int? id)
         {
+            listicId = id;
             return View(_context.Kandidat.Where(k => k.GlasackiListicId == id).ToList());
         }
 
@@ -165,7 +167,13 @@ namespace E_lections.Controllers
 
         public IActionResult ProfilKandidata(int? id)
         {
+
             var kandidat = _context.Kandidat.Include(k => k.Profil).Where(k => k.ID == id).FirstOrDefault();
+            if(kandidat.Profil == null)
+            {
+                ViewBag.Message = "Ovaj kandidat nema profil kojeg možete pogledati";
+                return View("DetaljiKandidata", _context.Kandidat.Where(k => k.GlasackiListicId == listicId).ToList());
+            }
             return View(kandidat.Profil);
         }
 
