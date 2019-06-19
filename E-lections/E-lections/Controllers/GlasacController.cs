@@ -146,7 +146,7 @@ namespace E_lections.Controllers
             foreach(int id in lista)
             {
                 var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
-                osoba.brojGlasova++;
+                osoba.brojGlasova++; 
             }
             _context.SaveChanges();
             ViewBag.PorukaGlasanje = "Hvala što ste glasali!";
