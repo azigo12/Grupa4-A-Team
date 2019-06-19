@@ -45,14 +45,21 @@ namespace E_lections.Models
             return rezultat;
         }
 
-        public void ZabiljeziGlasove(string glasovi)
+        public void ZabiljeziGlasove()
         {
-            string[] kantonGlas = glasovi.Split('/');
+            string[] kantonGlas = GlasoviZaKanton.Split('/');
             foreach(string s in kantonGlas)
             {
                 string[] tmp = s.Split(',');
                 Mapa.Add(tmp[0], Int32.Parse(tmp[1]));
             }
+        }
+
+        public void DodajGlas(string kanton)
+        {
+            ZabiljeziGlasove();
+            Mapa[kanton]++;
+            GlasoviZaKanton = DajGlasove();
         }
 
     }
