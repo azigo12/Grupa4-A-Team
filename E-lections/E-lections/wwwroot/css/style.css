@@ -160,6 +160,12 @@ form{
     margin-left: 30px;
 }
 
+.whiteLettersAndCenter{
+    color:white;
+    align-content:center;
+    margin-left:30px;
+}
+
 .back {
     background: #293e6a;
 }

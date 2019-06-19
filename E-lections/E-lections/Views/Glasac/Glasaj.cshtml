@@ -10,9 +10,11 @@
         <form method="post">
             @foreach (var item in Model.Kandidati)
             {
+            <div class="whiteLettersAndCenter">
                 @item.Ime @item.Prezime
-                <input type="checkbox" class="whiteLetters" name="glasovi" value="@item.ID" />
+                <input type="checkbox" name="glasovi" value="@item.ID" />
                 <br />
+            </div>
             }
             <input type="submit" class="btn" value="Glasaj" />
         </form>
