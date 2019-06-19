@@ -25,7 +25,7 @@ namespace E_lections.Controllers
 
         public IActionResult Izbori()
         {
-            return View(_context.Izbor.Include(i => i.GlasackiListici).Include(i => i.Statistika).Where(i => i.Status == StatusIzbora.Aktivan && i.KantonOgranicenje.Equals(HomeController.currentlyLogged.Kanton)).ToList());
+            return View(_context.Izbor.Include(i => i.GlasackiListici).Include(i => i.Statistika).Where(i => i.Status == StatusIzbora.Aktivan && (i.KantonOgranicenje == null || i.KantonOgranicenje.Equals(HomeController.currentlyLogged.Kanton))).ToList());
         }
 
         public IActionResult Stranka()
