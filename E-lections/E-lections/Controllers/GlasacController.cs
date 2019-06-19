@@ -125,7 +125,7 @@ namespace E_lections.Controllers
                 {
                     if(listic == id)
                     {
-                        ViewBag.Glasao = "Već ste glasali na ovim izborima";
+                        ViewBag.Glasao = "Već ste glasali na ovom glasačkom listiću";
                         return View("Detalji", _context.GlasackiListic.Include(k => k.Kandidati).Where(i => i.IzborId == currentIzbor).ToList());
                     }
                 }
