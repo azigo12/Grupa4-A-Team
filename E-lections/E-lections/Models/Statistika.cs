@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,10 +12,13 @@ namespace E_lections.Models
         public int ID { get; set; }
         public int IzborId { get; set; }
         public virtual Izbor Izbor { get; set; }
-
+        [Display(Name = "Glasovi M")]
         public int GlasoviMusko { get; set; }
+        [Display(Name = "Glasovi Ž")]
         public int GlasoviZensko { get; set; }
+        [Display(Name = "Validni glasovi")]
         public int GlasoviValidni { get; set; }
+        [Display(Name = "Nevalidni glasovi")]
         public int GlasoviNevalidni { get; set; }
         public string GlasoviZaKanton { get; set; }
 
