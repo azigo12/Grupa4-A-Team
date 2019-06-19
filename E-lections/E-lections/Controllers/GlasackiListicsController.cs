@@ -68,6 +68,10 @@ namespace E_lections.Controllers
             return View(glasackiListic);
         }
 
+        public IActionResult Rezultati(int id)
+        {
+            return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(g => g.ID == id).FirstOrDefault());
+        }
        
         public async Task<IActionResult> Delete(int? id)
         {
