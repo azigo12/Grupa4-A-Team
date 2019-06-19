@@ -4,17 +4,18 @@
     Layout = "~/Views/Shared/_LayoutGlasac.cshtml";
 }
 
-
-@using (Html.BeginForm("Glasaj", "Glasac"))
-{
-    <form method="post">
+    <div class="signin">
+        @using (Html.BeginForm("Glasaj", "Glasac"))
+        {
+            <form method="post" class="whiteLetters">
                 @foreach (var item in Model.Kandidati)
                 {
-                     @item.Ime @item.Prezime
-                     <input type="checkbox" name="glasovi" value="@item.ID" />
-                     <br/>
+                    @item.Ime @item.Prezime
+                    <input type="checkbox" name="glasovi" value="@item.ID" />
+                    <br />
                 }
-        <input type="submit" value="Glasaj" />
-    </form>
-}
+                <input type="submit" class="btn" value="Glasaj" />
+            </form>
+        }
+</div>
 
