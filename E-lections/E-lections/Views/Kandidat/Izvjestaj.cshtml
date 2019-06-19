@@ -1,0 +1,42 @@
+﻿@model E_lections.Models.Statistika
+
+@{
+    ViewData["Title"] = "Izvjestaj";
+    Layout = "~/Views/Shared/_LayoutKandidat.cshtml";
+}
+
+<table class="content-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GlasoviMusko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlasoviZensko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlasoviValidni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlasoviNevalidni)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.GlasoviMusko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.GlasoviZensko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.GlasoviValidni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.GlasoviNevalidni)
+            </td>
+        </tr>
+    </tbody>
+</table>
