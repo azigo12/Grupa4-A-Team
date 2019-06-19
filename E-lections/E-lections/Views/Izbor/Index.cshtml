@@ -4,17 +4,17 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-    <div align ="center">
-        @using (Html.BeginForm("Create", "Izbor", FormMethod.Get))
-        {
-            <input type="submit" value="Kreiraj izbore" class="btn" />
-        }
+<div align="center">
+    @using (Html.BeginForm("Create", "Izbor", FormMethod.Get))
+    {
+        <input type="submit" value="Kreiraj izbore" class="btn" />
+    }
 
-        @using (Html.BeginForm("Index", "GlasackiListics", FormMethod.Get))
-        {
-            <input type="submit" value="Pregled glasačkih listića" class="btn" />
-        }
-    </div>
+    @using (Html.BeginForm("Index", "GlasackiListics", FormMethod.Get))
+    {
+        <input type="submit" value="Pregled glasačkih listića" class="btn" />
+    }
+</div>
 
 
 <table class="content-table">
@@ -30,7 +30,7 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-               @Html.DisplayNameFor(model => model.ID)
+                @Html.DisplayNameFor(model => model.ID)
             </th>
             <th></th>
         </tr>
@@ -60,4 +60,14 @@
         }
     </tbody>
 </table>
+
+
+<div align="center">
+    @if (ViewBag.Izvjestaj != null)
+    {
+        <h2>
+            @ViewBag.Izvjestaj
+        </h2>
+    }
+</div>
 
