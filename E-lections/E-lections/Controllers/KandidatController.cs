@@ -205,5 +205,11 @@ namespace E_lections.Controllers
             return View(kandidat.Profil);
         }
 
+        public IActionResult Izvjestaj(int id)
+        {
+            var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == id).FirstOrDefault();
+            return View(izbor.Statistika);
+        }
+
     }
 }

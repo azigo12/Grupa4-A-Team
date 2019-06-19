@@ -23,20 +23,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pocetak)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Opis)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KantonOgranicenje)
-                </td>
-                <td>
-                    <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pocetak)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KantonOgranicenje)
+            </td>
+            <td>
+                <a asp-action="Detalji" asp-route-id="@item.ID">Detaljno</a> |
+            </td>
+            @if (item.Statistika != null && item.Statistika.Visible == true)
+            {
+                <a asp-action="Izvjestaj" asp-route-id="@item.ID">Izvještaj</a>
+            }
+        </tr>
         }
     </tbody>
 </table>
