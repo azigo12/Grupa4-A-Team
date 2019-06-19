@@ -140,18 +140,22 @@ namespace E_lections.Controllers
         [HttpPost]
         public IActionResult Glasaj(string[] glasovi)
         {
+
+            var glas = _context.GlasackiListic.Where(i => i.IzborId == currentIzbor).FirstOrDefault();
             List<int> lista = new List<int>();
             foreach(string s in glasovi)
             {
                 lista.Add(Int32.Parse(s));
             }
-            foreach(int id in lista)
+            foreach (int id in lista)
             {
-                var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
-                osoba.brojGlasova++; 
+                if (glasovi.Length <= glas.MaxOdabir)
+                {
+                    var osoba = _context.Kandidat.FirstOrDefault(k => k.ID == id);
+                    osoba.brojGlasova++;
+                }
             }
             var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == currentIzbor).FirstOrDefault();
-            var glas = _context.GlasackiListic.Where(i => i.IzborId == currentIzbor).FirstOrDefault();
             if (izbor.Statistika == null) izbor.Statistika = new Statistika();
             if (HomeController.currentlyLogged.Spol == Spol.Muski) izbor.Statistika.GlasoviMusko++;
             else izbor.Statistika.GlasoviZensko++;
