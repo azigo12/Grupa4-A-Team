@@ -74,7 +74,7 @@ namespace E_lections.Controllers
             if(glasackiListic.Izbor.Pocetak > DateTime.Now)
             {
                 ViewBag.Msg = "Izbori nisu počeli!";
-                return View("Index");
+                return View("Index", _context.GlasackiListic.Include(g => g.Izbor).ToList());
             }
             return View(glasackiListic);
         }
