@@ -72,6 +72,19 @@ namespace E_lections.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Izvjestaj(int id)
+        {
+            var izbor = _context.Izbor.Include(i => i.Statistika).Where(i => i.ID == id).FirstOrDefault();
+            if (izbor.Pocetak > DateTime.Now) ViewBag.Izvjestaj = "Izbori nisu poceli!";
+            else
+            {
+                ViewBag.Izvjestaj = "Izvjestaj je generisan!";
+                izbor.Statistika.Visible = true;
+                _context.SaveChanges();
+            }
+            return View("Index");
+        }
+
         private bool IzborExists(int id)
         {
             return _context.Izbor.Any(e => e.ID == id);
