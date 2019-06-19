@@ -78,11 +78,12 @@ namespace E_lections.Controllers
             if (izbor.Pocetak > DateTime.Now) ViewBag.Izvjestaj = "Izbori nisu poceli!";
             else
             {
+                if (izbor.Statistika == null) izbor.Statistika = new Statistika();
                 ViewBag.Izvjestaj = "Izvjestaj je generisan!";
                 izbor.Statistika.Visible = true;
                 _context.SaveChanges();
             }
-            return View("Index");
+            return View("Index", _context.Izbor.Include(g => g.GlasackiListici).ToList());
         }
         
         private bool IzborExists(int id)
