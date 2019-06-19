@@ -70,7 +70,13 @@ namespace E_lections.Controllers
 
         public IActionResult Rezultati(int id)
         {
-            return View(_context.GlasackiListic.Include(k => k.Kandidati).Where(g => g.ID == id).FirstOrDefault());
+            var glasackiListic = _context.GlasackiListic.Include(k => k.Kandidati).Include(k => k.Izbor).Where(g => g.ID == id).FirstOrDefault();
+            if(glasackiListic.Izbor.Pocetak > DateTime.Now)
+            {
+                ViewBag.Msg = "Izbori nisu počeli!";
+                return View("Index");
+            }
+            return View(glasackiListic);
         }
        
         public async Task<IActionResult> Delete(int? id)
