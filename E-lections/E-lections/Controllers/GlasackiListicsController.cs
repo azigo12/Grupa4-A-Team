@@ -62,7 +62,7 @@ namespace E_lections.Controllers
             {
                 _context.Add(glasackiListic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); 
             }
             ViewData["IzborId"] = new SelectList(_context.Izbor, "ID", "Opis", glasackiListic.IzborId);
             return View(glasackiListic);
