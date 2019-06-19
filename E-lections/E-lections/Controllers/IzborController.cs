@@ -84,13 +84,7 @@ namespace E_lections.Controllers
             }
             return View("Index");
         }
-
-        public IActionResult ViewIzv(int id)
-        {
-            var statistika = _context.Statistika.Where(s => s.IzborId == id).FirstOrDefault();
-            return View(statistika);
-        }
-
+        
         private bool IzborExists(int id)
         {
             return _context.Izbor.Any(e => e.ID == id);
